@@ -2,30 +2,44 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <title>Bob’s Link Hub</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Bob’s Quick Links</title>
   <style>
-    body { 
-      font-family: system-ui, Arial, sans-serif; 
-      max-width: 700px; 
-      margin: 3rem auto; 
-      line-height: 1.6; 
-      padding: 0 1rem; 
-    }
-    h1 { margin-bottom: 0.5rem; }
-    ul { padding-left: 1.25rem; }
-    a { text-decoration: none; color: #0066cc; }
+    :root { font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; }
+    body { margin: 2rem auto; max-width: 720px; line-height: 1.55; padding: 0 1rem; }
+    h1 { margin-bottom: .5rem; }
+    .note { color: #555; margin-bottom: 1.2rem; }
+    ul { list-style: none; padding-left: 0; }
+    li { margin: .6rem 0; }
+    a { text-decoration: none; }
     a:hover { text-decoration: underline; }
-    .note { color: #555; font-size: 0.95rem; }
+    .desc { display:block; font-size:.95rem; color:#555; }
+    footer { margin-top:2rem; font-size:.9rem; color:#666; }
   </style>
 </head>
 <body>
   <h1>Bob’s Link Hub</h1>
   <p class="note">A simple page of links I share with friends, family, and workshop participants.</p>
+
   <ul>
-    <li><a href="https://example.com" target="_blank" rel="noopener">Example link 1</a></li>
-    <li><a href="https://example.org" target="_blank" rel="noopener">Example link 2</a></li>
-    <li><a href="subpage.html">My subpage</a></li>
+    <li>
+      <a href="https://example.com" target="_blank" rel="noopener">Example link 1</a>
+      <span class="desc">Short description of why this is useful.</span>
+    </li>
+    <li>
+      <a href="https://example.org" target="_blank" rel="noopener">Example link 2</a>
+      <span class="desc">Another quick description.</span>
+    </li>
+    <li>
+      <a href="subpage.html">Workshop Resources (subpage)</a>
+      <span class="desc">Slides, handouts, and how-tos.</span>
+    </li>
   </ul>
+
+  <footer>
+    © <span id="y"></span> Bob Ainsworth
+  </footer>
+  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
 </body>
 </html>
+
