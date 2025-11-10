@@ -1,61 +1,328 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Bob Ainsworth — Home</title>
-<style>
-  :root{--bg:#0b0f14;--surface:#0e1420;--card:#0f1520;--text:#e6eef7;--muted:#a9b3c1;--accent:#5ab3ff;--radius:18px;--radius-lg:22px;--shadow:0 10px 25px rgba(0,0,0,.35)}
-  body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif}
-  .wrap{max-width:1200px;margin:auto;padding:16px 18px 40px}
-  /* Header reduced by ~1/3 */
-  .hero{position:relative;overflow:clip;border-radius:var(--radius-lg);border:1px solid rgba(255,255,255,.14);box-shadow:var(--shadow);
-        min-height:clamp(160px,21vh,252px);padding:clamp(12px,2.6vw,20px);display:grid;align-items:center;
-        background:radial-gradient(1400px 700px at -10% -20%, rgba(90,179,255,.12), transparent 60%),
-                   radial-gradient(1000px 700px at 110% -10%, rgba(13,188,121,.10), transparent 60%),
-                   linear-gradient(180deg, color-mix(in oklab, var(--surface) 85%, black 15%), var(--surface));}
-  .brand{display:flex;gap:12px;align-items:center}
-  .logo{width:46px;height:46px;border-radius:12px;display:grid;place-items:center;background:linear-gradient(135deg,#5ab3ff,#9bffcc);font-weight:800;color:#fff}
-  h1{margin:0;font-size:clamp(22px,2.6vw,30px)}
-  .tagline{margin:0;color:var(--muted);font-size:14px}
-  /* Cards smaller */
-  main{margin-top:14px}
-  .grid{display:grid;gap:14px;grid-template-columns:repeat(3,minmax(0,1fr))}
-  @media (max-width:900px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
-  @media (max-width:620px){.grid{grid-template-columns:1fr}}
-  .card{padding:12px 14px;border-radius:16px;background:linear-gradient(180deg, color-mix(in oklab,var(--card) 92%, white 8%), var(--card));
-        border:1px solid rgba(255,255,255,.12);box-shadow:var(--shadow);text-decoration:none;color:inherit}
-  .card h2{margin:0 0 2px;font-size:clamp(16px,2vw,19px)}
-  .card p{margin:0;color:var(--muted);font-size:13px}
-  /* Hide blue dot + label (chips) if they exist */
-  .chip{display:none!important}
-</style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bob Ainsworth — Home</title>
+  <meta name="description" content="Bob Ainsworth — AI, travel, music, photography, and more." />
+
+  <style>
+    :root {
+      --bg: #0b0f14;
+      --surface: #121823;
+      --card: #0f1520;
+      --text: #e6eef7;
+      --muted: #a9b3c1;
+      --accent: #5ab3ff;
+      --accent-2: #9bffcc;
+      --ring: rgba(90, 179, 255, 0.5);
+      --shadow: 0 10px 25px rgba(0,0,0,0.35);
+      --radius: 18px;
+      --radius-lg: 22px;
+    }
+
+    @media (prefers-color-scheme: light) {
+      :root {
+        --bg: #f7fafc;
+        --surface: #ffffff;
+        --card: #ffffff;
+        --text: #0b1220;
+        --muted: #445066;
+        --accent: #165dff;
+        --accent-2: #0dbc79;
+        --ring: rgba(22, 93, 255, 0.25);
+        --shadow: 0 8px 20px rgba(12, 26, 75, 0.08);
+      }
+    }
+
+    * { box-sizing: border-box; }
+    html, body {
+      margin: 0;
+      height: 100%;
+      background: radial-gradient(1200px 800px at 10% -10%, rgba(90,179,255,0.12), transparent 60%),
+                  radial-gradient(900px 700px at 110% 10%, rgba(13,188,121,0.10), transparent 55%),
+                  var(--bg);
+      color: var(--text);
+      font: 16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica, Arial, sans-serif;
+    }
+
+    .wrap {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 28px 20px 64px;
+    }
+
+    header.site {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+      align-items: start;
+      margin: 10px 0 28px;
+      padding: 24px;
+      background: linear-gradient(180deg, var(--surface), color-mix(in oklab, var(--surface) 80%, black 20%));
+      border: 1px solid color-mix(in oklab, var(--surface) 75%, white 25%);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow);
+    }
+
+    .brand {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+    }
+    .logo {
+      width: 56px;
+      height: 56px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: white;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      box-shadow: 0 8px 18px var(--ring);
+      user-select: none;
+    }
+    h1 {
+      font-size: clamp(24px, 3.2vw, 36px);
+      letter-spacing: 0.5px;
+      margin: 0;
+    }
+    .tagline {
+      margin: 2px 0 0;
+      color: var(--muted);
+      font-size: clamp(14px, 2vw, 16px);
+    }
+
+    .cta-row {
+      margin-top: 10px;
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      appearance: none;
+      border: 1px solid color-mix(in oklab, var(--surface) 70%, white 30%);
+      background: linear-gradient(180deg, color-mix(in oklab, var(--card) 85%, white 15%), var(--card));
+      color: var(--text);
+      padding: 10px 14px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 600;
+      box-shadow: var(--shadow);
+      transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease;
+    }
+    .btn:hover {
+      transform: translateY(-2px);
+      border-color: var(--ring);
+    }
+    .btn.primary {
+      border-color: var(--accent);
+      background: linear-gradient(180deg, color-mix(in oklab, var(--accent) 30%, var(--card) 70%), var(--card));
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 20px;
+    }
+    @media (max-width: 900px) {
+      .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    @media (max-width: 620px) {
+      .grid { grid-template-columns: 1fr; }
+    }
+
+    .card {
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      gap: 10px;
+      padding: 18px;
+      border-radius: var(--radius);
+      background: linear-gradient(180deg, color-mix(in oklab, var(--card) 92%, white 8%), var(--card));
+      border: 1px solid color-mix(in oklab, var(--surface) 75%, white 25%);
+      text-decoration: none;
+      color: inherit;
+      box-shadow: var(--shadow);
+      transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+      position: relative;
+      overflow: clip;
+    }
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 18px 40px rgba(0,0,0,0.35);
+      border-color: var(--ring);
+    }
+
+    .card h2 {
+      font-size: clamp(18px, 2.4vw, 22px);
+      margin: 0 0 4px;
+      letter-spacing: 0.2px;
+    }
+    .card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 12px;
+      font-size: 12px;
+      color: var(--muted);
+      padding: 6px 10px;
+      border: 1px dashed color-mix(in oklab, var(--surface) 70%, white 30%);
+      border-radius: 999px;
+    }
+    .chip .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 0 3px var(--ring);
+    }
+
+    footer {
+      margin-top: 36px;
+      color: var(--muted);
+      font-size: 14px;
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .links a {
+      color: var(--muted);
+      text-decoration: none;
+      border-bottom: 1px dotted color-mix(in oklab, var(--muted) 70%, transparent);
+    }
+    .links a:hover {
+      color: var(--text);
+      border-bottom-color: var(--text);
+    }
+
+    .spark {
+      position: absolute;
+      inset: -40% -20% auto auto;
+      width: 220px;
+      height: 220px;
+      background: radial-gradient(100px 100px at 70% 30%, color-mix(in oklab, var(--accent) 45%, transparent), transparent 60%),
+                  radial-gradient(120px 120px at 30% 80%, color-mix(in oklab, var(--accent-2) 35%, transparent), transparent 70%);
+      filter: blur(10px);
+      opacity: 0.14;
+      pointer-events: none;
+    }
+  </style>
 </head>
+
 <body>
   <div class="wrap">
-    <header class="hero">
+    <header class="site">
       <div class="brand">
         <div class="logo">BA</div>
         <div>
           <h1>Bob Ainsworth</h1>
           <p class="tagline">AI educator • traveler • music lover • bird photographer</p>
+
+          <div class="cta-row">
+            <a class="btn primary" href="#">About</a>
+            <a class="btn" href="mailto:">Contact</a>
+          </div>
         </div>
       </div>
     </header>
 
     <main>
       <div class="grid">
-        <a class="card" href="#">AI News</a>
-        <a class="card" href="#">AI YouTube Videos</a>
-        <a class="card" href="#">AI Workshop</a>
-        <a class="card" href="#">Political</a>
-        <a class="card" href="#">Music</a>
-        <a class="card" href="#">Travel</a>
-        <a class="card" href="#">Bird Photography</a>
-        <a class="card" href="#">Chewie &amp; Princess</a>
-        <a class="card" href="#">About</a>
+
+        <a class="card" href="#">
+          <div class="spark"></div>
+          <h2>AI News</h2>
+          <p>Curated weekly highlights and commentary on the latest in AI.</p>
+          <div class="chip"><span class="dot"></span> Start here</div>
+        </a>
+
+        <a class="card" href="#">
+          <div class="spark"></div>
+          <h2>AI YouTube Videos</h2>
+          <p>Recent uploads and playlists from my channel.</p>
+          <div class="chip"><span class="dot"></span> New content</div>
+        </a>
+
+        <a class="card" href="#">
+          <div class="spark"></div>
+          <h2>AI Workshop</h2>
+          <p>Slides, handouts, and sign-ups for upcoming sessions.</p>
+          <div class="chip"><span class="dot"></span> Resources</div>
+        </a>
+
+        <a class="card" href="#">
+          <div class="spark"></div>
+          <h2>Political</h2>
+          <p>Occasional essays and links on policy and civic topics.</p>
+          <div class="chip"><span class="dot"></span> Essays</div>
+        </a>
+
+        <a class="card" href="#">
+          <div class="spark"></div>
+          <h2>Music</h2>
+          <p>Playlists, reviews, and concert notes.</p>
+          <div class="chip"><span class="dot"></span> Playlists</div>
+        </a>
+
+        <a class="card" href="#">
+          <div class="spark"></div>
+          <h2>Travel</h2>
+          <p>Itineraries, maps, and photo journals from the road.</p>
+          <div class="chip"><span class="dot"></span> Guides</div>
+        </a>
+
+        <a class="card" href="#">
+          <div class="spark"></div>
+          <h2>Bird Photography</h2>
+          <p>Galleries, gear notes, and behind-the-shot stories.</p>
+          <div class="chip"><span class="dot"></span> Gallery</div>
+        </a>
+
+        <a class="card" href="#">
+          <div class="spark"></div>
+          <h2>Chewie and Princess</h2>
+          <p>Adventures of our pups — photos and short clips.</p>
+          <div class="chip"><span class="dot"></span> Fun</div>
+        </a>
+
+        <a class="card" href="#">
+          <div class="spark"></div>
+          <h2>About</h2>
+          <p>Who I am, what I’m up to, and how to reach me.</p>
+          <div class="chip"><span class="dot"></span> Bio</div>
+        </a>
+
       </div>
     </main>
+
+    <footer>
+      <div class="links">
+        <a href="https://youtube.com/@BobsAIChannel">YouTube</a>
+        <a href="https://www.linkedin.com/in/bob-ainsworth-56b686">LinkedIn</a>
+        <a href="https://bobainsworthgallery.smugmug.com">Photo Gallery</a>
+        <a href="https://open.spotify.com/user/calerobob">Spotify</a>
+        <a href="https://github.com/BobAinsworth">GitHub</a>
+      </div>
+      <div>&copy; <span id="y"></span> Bob Ainsworth</div>
+    </footer>
+
   </div>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+
 </body>
 </html>
