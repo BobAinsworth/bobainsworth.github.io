@@ -1,264 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Bob Ainsworth — Home</title>
-  <meta name="description" content="Bob Ainsworth — AI, travel, music, photography, and more." />
-
-  <style>
-    :root {
-      --bg: #0b0f14;
-      --surface: #0e1420;
-      --card: #0f1520;
-      --text: #e6eef7;
-      --muted: #a9b3c1;
-      --accent: #5ab3ff;
-      --accent-2: #9bffcc;
-      --ring: rgba(90, 179, 255, 0.45);
-      --shadow: 0 10px 25px rgba(0,0,0,0.35);
-      --radius: 18px;
-      --radius-lg: 22px;
-    }
-    @media (prefers-color-scheme: light) {
-      :root {
-        --bg: #f7fafc;
-        --surface: #eef4ff;
-        --card: #ffffff;
-        --text: #0b1220;
-        --muted: #445066;
-        --accent: #165dff;
-        --accent-2: #0dbc79;
-        --ring: rgba(22, 93, 255, 0.25);
-        --shadow: 0 8px 20px rgba(12, 26, 75, 0.08);
-      }
-    }
-    * { box-sizing: border-box; }
-    html, body { margin: 0; height: 100%; background: var(--bg); color: var(--text);
-      font: 16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica, Arial, sans-serif; }
-    .wrap { max-width: 1200px; margin: 0 auto; padding: 18px 20px 64px; }
-
-    /* ===== OPTION B: CSS-only animated gradient + SVG icon pattern ===== */
-    .hero {
-      position: relative;
-      overflow: clip;
-      border-radius: var(--radius-lg);
-      border: 1px solid color-mix(in oklab, var(--surface) 70%, white 30%);
-      box-shadow: var(--shadow);
-      isolation: isolate;
-      min-height: clamp(240px, 32vh, 380px);
-      display: grid;
-      align-items: center;
-      padding: clamp(18px, 4vw, 32px);
-      /* Layer 1: animated gradient mesh */
-      background:
-        radial-gradient(1400px 700px at -10% -20%, rgba(90,179,255,0.16), transparent 60%),
-        radial-gradient(1000px 700px at 110% -10%, rgba(13,188,121,0.14), transparent 60%),
-        conic-gradient(from 180deg at 60% -20%, rgba(155,255,204,0.07), transparent 50%),
-        linear-gradient(180deg, color-mix(in oklab, var(--surface) 85%, black 15%), var(--surface));
-    }
-    /* Layer 2: drifting icon pattern (inline SVG via data URI) */
-    .hero::before {
-      content: "";
-      position: absolute; inset: 0; z-index: 0;
-      opacity: .55;
-      background-image: url("data:image/svg+xml;utf8,\
-<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240' viewBox='0 0 240 240'>\
-<defs>\
-  <filter id='s' x='-50%' y='-50%' width='200%' height='200%'>\
-    <feGaussianBlur stdDeviation='1.5'/>\
-  </filter>\
-</defs>\
-<rect width='100%' height='100%' fill='transparent' />\
-<!-- Interests: AI, music, travel, camera, bird, dog, ballot, cap -->\
-<g font-family='Segoe UI Emoji, Apple Color Emoji, Noto Color Emoji' font-size='26' fill='#ffffff'>\
-  <text x='24' y='42' opacity='.22' filter='url(%23s)'>🤖</text>\
-  <text x='120' y='42' opacity='.22' filter='url(%23s)'>🎵</text>\
-  <text x='200' y='42' opacity='.22' filter='url(%23s)'>✈️</text>\
-  <text x='24' y='120' opacity='.22' filter='url(%23s)'>📷</text>\
-  <text x='120' y='120' opacity='.22' filter='url(%23s)'>🐦</text>\
-  <text x='200' y='120' opacity='.22' filter='url(%23s)'>🐶</text>\
-  <text x='24' y='200' opacity='.22' filter='url(%23s)'>🗳️</text>\
-  <text x='120' y='200' opacity='.22' filter='url(%23s)'>🎓</text>\
-</g>\
-<g opacity='.18' fill='none' stroke='#ffffff' stroke-width='0.8'>\
-  <circle cx='24' cy='42' r='8'/>\
-  <circle cx='120' cy='42' r='8'/>\
-  <circle cx='200' cy='42' r='8'/>\
-  <circle cx='24' cy='120' r='8'/>\
-  <circle cx='120' cy='120' r='8'/>\
-  <circle cx='200' cy='120' r='8'/>\
-  <circle cx='24' cy='200' r='8'/>\
-  <circle cx='120' cy='200' r='8'/>\
-  <path d='M24 42 L120 42 L200 42 M24 42 L24 120 L24 200 M24 200 L120 200 L200 120' stroke-dasharray='6 8'/>\
-</g>\
-</svg>");
-      background-size: 260px 260px;
-      background-repeat: repeat;
-      animation: drift 42s linear infinite;
-      filter: saturate(1.15) contrast(1.05);
-    }
-    /* Layer 3: soft parallax glow */
-    .hero::after {
-      content: "";
-      position: absolute; inset: -10% -20% -10% -20%;
-      z-index: 0;
-      background:
-        radial-gradient(180px 180px at 20% 30%, rgba(90,179,255,.22), transparent 70%),
-        radial-gradient(220px 220px at 80% 25%, rgba(13,188,121,.18), transparent 65%),
-        radial-gradient(200px 200px at 65% 75%, rgba(157,180,255,.16), transparent 70%);
-      animation: floatGlow 28s ease-in-out infinite alternate;
-      pointer-events: none;
-    }
-    @keyframes drift { 0% { background-position: 0 0; } 100% { background-position: 520px 260px; } }
-    @keyframes floatGlow {
-      0% { transform: translate3d(-8px, -4px, 0) scale(1); }
-      100% { transform: translate3d(12px, 10px, 0) scale(1.02); }
-    }
-
-    .hero-content { position: relative; z-index: 1; display: grid; gap: 8px; }
-    .brand { display: flex; gap: 14px; align-items: center; }
-    .logo {
-      width: 56px; height: 56px; border-radius: 14px; display: grid; place-items: center;
-      background: linear-gradient(135deg, var(--accent), var(--accent-2));
-      color: white; font-weight: 800; letter-spacing: 0.5px; box-shadow: 0 8px 18px var(--ring);
-      user-select: none;
-    }
-    h1 { font-size: clamp(24px, 3.2vw, 36px); letter-spacing: 0.5px; margin: 0; }
-    .tagline { margin: 0; color: var(--muted); font-size: clamp(14px, 2vw, 16px); }
-    .cta-row { margin-top: 8px; display: flex; gap: 10px; flex-wrap: wrap; }
-    .btn {
-      appearance: none; border: 1px solid color-mix(in oklab, var(--surface) 70%, white 30%);
-      background: linear-gradient(180deg, color-mix(in oklab, var(--card) 85%, white 15%), var(--card));
-      color: var(--text); padding: 10px 14px; border-radius: 12px; text-decoration: none;
-      font-weight: 600; box-shadow: var(--shadow);
-      transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease;
-    }
-    .btn:hover { transform: translateY(-2px); border-color: var(--ring); }
-    .btn.primary { border-color: var(--accent);
-      background: linear-gradient(180deg, color-mix(in oklab, var(--accent) 28%, var(--card) 72%), var(--card)); }
-
-    /* ===== Grid of section cards ===== */
-    main { margin-top: 20px; }
-    .grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
-    @media (max-width: 900px) { .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-    @media (max-width: 620px) { .grid { grid-template-columns: 1fr; } }
-
-    .card {
-      display: grid; grid-template-rows: auto 1fr auto; gap: 10px; padding: 18px;
-      border-radius: var(--radius);
-      background: linear-gradient(180deg, color-mix(in oklab, var(--card) 92%, white 8%), var(--card));
-      border: 1px solid color-mix(in oklab, var(--surface) 75%, white 25%);
-      text-decoration: none; color: inherit; box-shadow: var(--shadow);
-      transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
-      position: relative; overflow: clip;
-    }
-    .card:hover { transform: translateY(-4px); box-shadow: 0 18px 40px rgba(0,0,0,0.35); border-color: var(--ring); }
-    .card h2 { font-size: clamp(18px, 2.4vw, 22px); margin: 0 0 4px; letter-spacing: 0.2px; }
-    .card p { margin: 0; color: var(--muted); font-size: 14px; }
-    .chip { display: inline-flex; align-items: center; gap: 8px; margin-top: 12px; font-size: 12px; color: var(--muted);
-      padding: 6px 10px; border: 1px dashed color-mix(in oklab, var(--surface) 70%, white 30%); border-radius: 999px; }
-    .chip .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 3px var(--ring); }
-
-    footer { margin-top: 36px; color: var(--muted); font-size: 14px; display: flex; gap: 12px; flex-wrap: wrap;
-      align-items: center; justify-content: space-between; }
-    .links { display: flex; gap: 12px; flex-wrap: wrap; }
-    .links a { color: var(--muted); text-decoration: none; border-bottom: 1px dotted color-mix(in oklab, var(--muted) 70%, transparent); }
-    .links a:hover { color: var(--text); border-bottom-color: var(--text); }
-  </style>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Bob Ainsworth — Home</title>
+<style>
+  :root{--bg:#0b0f14;--surface:#0e1420;--card:#0f1520;--text:#e6eef7;--muted:#a9b3c1;--accent:#5ab3ff;--radius:18px;--radius-lg:22px;--shadow:0 10px 25px rgba(0,0,0,.35)}
+  body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif}
+  .wrap{max-width:1200px;margin:auto;padding:16px 18px 40px}
+  /* Header reduced by ~1/3 */
+  .hero{position:relative;overflow:clip;border-radius:var(--radius-lg);border:1px solid rgba(255,255,255,.14);box-shadow:var(--shadow);
+        min-height:clamp(160px,21vh,252px);padding:clamp(12px,2.6vw,20px);display:grid;align-items:center;
+        background:radial-gradient(1400px 700px at -10% -20%, rgba(90,179,255,.12), transparent 60%),
+                   radial-gradient(1000px 700px at 110% -10%, rgba(13,188,121,.10), transparent 60%),
+                   linear-gradient(180deg, color-mix(in oklab, var(--surface) 85%, black 15%), var(--surface));}
+  .brand{display:flex;gap:12px;align-items:center}
+  .logo{width:46px;height:46px;border-radius:12px;display:grid;place-items:center;background:linear-gradient(135deg,#5ab3ff,#9bffcc);font-weight:800;color:#fff}
+  h1{margin:0;font-size:clamp(22px,2.6vw,30px)}
+  .tagline{margin:0;color:var(--muted);font-size:14px}
+  /* Cards smaller */
+  main{margin-top:14px}
+  .grid{display:grid;gap:14px;grid-template-columns:repeat(3,minmax(0,1fr))}
+  @media (max-width:900px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+  @media (max-width:620px){.grid{grid-template-columns:1fr}}
+  .card{padding:12px 14px;border-radius:16px;background:linear-gradient(180deg, color-mix(in oklab,var(--card) 92%, white 8%), var(--card));
+        border:1px solid rgba(255,255,255,.12);box-shadow:var(--shadow);text-decoration:none;color:inherit}
+  .card h2{margin:0 0 2px;font-size:clamp(16px,2vw,19px)}
+  .card p{margin:0;color:var(--muted);font-size:13px}
+  /* Hide blue dot + label (chips) if they exist */
+  .chip{display:none!important}
+</style>
 </head>
 <body>
   <div class="wrap">
-    <header class="hero" role="banner" aria-label="Pattern background header">
-      <div class="hero-content">
-        <div class="brand">
-          <div class="logo" aria-hidden="true">BA</div>
-          <div>
-            <h1>Bob Ainsworth</h1>
-            <p class="tagline">AI educator • traveler • music lover • bird photographer</p>
-            <div class="cta-row">
-              <a class="btn primary" href="#" aria-label="About Bob">About</a>
-              <a class="btn" href="mailto:" aria-label="Email Bob">Contact</a>
-            </div>
-          </div>
+    <header class="hero">
+      <div class="brand">
+        <div class="logo">BA</div>
+        <div>
+          <h1>Bob Ainsworth</h1>
+          <p class="tagline">AI educator • traveler • music lover • bird photographer</p>
         </div>
       </div>
     </header>
 
-    <main aria-label="Sections">
+    <main>
       <div class="grid">
-        <!-- Replace # with target links -->
-        <a class="card" href="#" aria-label="AI News">
-          <h2>AI News</h2>
-          <p>Curated weekly highlights and commentary on the latest in AI.</p>
-          <div class="chip"><span class="dot"></span> Start here</div>
-        </a>
-
-        <a class="card" href="#" aria-label="AI YouTube Videos">
-          <h2>AI YouTube Videos</h2>
-          <p>Recent uploads and playlists from my channel.</p>
-          <div class="chip"><span class="dot"></span> New content</div>
-        </a>
-
-        <a class="card" href="#" aria-label="AI Workshop">
-          <h2>AI Workshop</h2>
-          <p>Slides, handouts, and sign-ups for upcoming sessions.</p>
-          <div class="chip"><span class="dot"></span> Resources</div>
-        </a>
-
-        <a class="card" href="#" aria-label="Political">
-          <h2>Political</h2>
-          <p>Occasional essays and links on policy and civic topics.</p>
-          <div class="chip"><span class="dot"></span> Essays</div>
-        </a>
-
-        <a class="card" href="#" aria-label="Music">
-          <h2>Music</h2>
-          <p>Playlists, reviews, and concert notes.</p>
-          <div class="chip"><span class="dot"></span> Playlists</div>
-        </a>
-
-        <a class="card" href="#" aria-label="Travel">
-          <h2>Travel</h2>
-          <p>Itineraries, maps, and photo journals from the road.</p>
-          <div class="chip"><span class="dot"></span> Guides</div>
-        </a>
-
-        <a class="card" href="#" aria-label="Bird Photography">
-          <h2>Bird Photography</h2>
-          <p>Galleries, gear notes, and behind-the-shot stories.</p>
-          <div class="chip"><span class="dot"></span> Gallery</div>
-        </a>
-
-        <a class="card" href="#" aria-label="Chewie and Princess">
-          <h2>Chewie and Princess</h2>
-          <p>Adventures of our pups — photos and short clips.</p>
-          <div class="chip"><span class="dot"></span> Fun</div>
-        </a>
-
-        <a class="card" href="#" aria-label="About">
-          <h2>About</h2>
-          <p>Who I am, what I’m up to, and how to reach me.</p>
-          <div class="chip"><span class="dot"></span> Bio</div>
-        </a>
+        <a class="card" href="#">AI News</a>
+        <a class="card" href="#">AI YouTube Videos</a>
+        <a class="card" href="#">AI Workshop</a>
+        <a class="card" href="#">Political</a>
+        <a class="card" href="#">Music</a>
+        <a class="card" href="#">Travel</a>
+        <a class="card" href="#">Bird Photography</a>
+        <a class="card" href="#">Chewie &amp; Princess</a>
+        <a class="card" href="#">About</a>
       </div>
     </main>
-
-    <footer>
-      <div class="links">
-        <a href="https://youtube.com/@BobsAIChannel" rel="me">YouTube</a>
-        <a href="https://www.linkedin.com/in/bob-ainsworth-56b686" rel="me">LinkedIn</a>
-        <a href="https://bobainsworthgallery.smugmug.com" rel="me">Photo Gallery</a>
-        <a href="https://open.spotify.com/user/calerobob" rel="me">Spotify</a>
-        <a href="https://github.com/BobAinsworth" rel="me">GitHub</a>
-      </div>
-      <div>&copy; <span id="y"></span> Bob Ainsworth</div>
-    </footer>
   </div>
-
-  <script>
-    // Insert current year
-    document.getElementById('y').textContent = new Date().getFullYear();
-  </script>
 </body>
 </html>
