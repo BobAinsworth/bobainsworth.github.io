@@ -36,7 +36,8 @@
       border:1px solid rgba(0,0,0,0.08);
       box-shadow:var(--shadow);
       isolation:isolate;
-      min-height:clamp(120px,16vh,190px);
+      /* Reduced header height to match current homepage */
+      min-height:clamp(80px,12vh,120px);
       display:flex;align-items:center;
       padding:clamp(12px,3vw,20px);
       background:
@@ -53,45 +54,45 @@
       box-shadow:0 6px 12px var(--ring);
       user-select:none;
     }
-    h1{margin:0;font-size:clamp(22px,2.6vw,30px)}
+    h1{margin:0;font-size:clamp(22px,2.2vw,28px)}
     .tagline{margin:0;color:var(--muted);font-size:14px}
     main{margin-top:20px}
-    .link-list{list-style:none;padding:0;margin:0;display:grid;gap:14px}
-    .link-list a{
-      display:block;
-      padding:14px 16px;
-      border-radius:var(--radius);
-      background:var(--card);
-      border:1px solid rgba(0,0,0,0.08);
-      box-shadow:var(--shadow);
-      color:var(--accent);
-      font-weight:600;
-      text-decoration:none;
-      transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease, color .2s ease;
-    }
-    .link-list a:hover{
-      transform:translateY(-3px);
-      box-shadow:0 10px 22px rgba(0,0,0,0.12);
-      border-color:var(--accent);
-      color:var(--accent-2);
-    }
-    footer{margin-top:28px;color:var(--muted);font-size:14px;display:flex;gap:12px;flex-wrap:wrap;align-items:center;justify-content:space-between}
-    .links{display:flex;gap:12px;flex-wrap:wrap}
-    .links a{color:var(--muted);text-decoration:none;border-bottom:1px dotted rgba(0,0,0,0.18)}
-    .links a:hover{color:var(--text);border-bottom-color:var(--text)}
     nav.breadcrumb{margin:12px 0;color:var(--muted);font-size:14px}
     nav.breadcrumb a{color:var(--muted);text-decoration:none;border-bottom:1px dotted rgba(0,0,0,0.18)}
     nav.breadcrumb a:hover{color:var(--text);border-bottom-color:var(--text)}
+
+    /* Single rectangle (card) */
     .section{
       background:var(--card);
       border:1px solid rgba(0,0,0,0.08);
       border-radius:var(--radius);
       box-shadow:var(--shadow);
-      padding:16px 18px;
+      padding:22px 24px;
       margin-top:18px;
     }
-  </style>
+    .section h2{margin:0 0 6px 0;font-size:clamp(18px,1.8vw,20px)}
+    .section .subtle{margin:0 0 14px 0;color:var(--muted);font-size:13px}
 
+    /* Double-spaced block links */
+    .section a{
+      display:block;
+      color:var(--accent);
+      font-weight:600;
+      text-decoration:none;
+      margin:14px 0; /* spacing between items */
+      line-height:1.9; /* visually "double spaced" */
+      letter-spacing:.1px;
+    }
+    .section a:hover{
+      color:var(--accent-2);
+      text-decoration:underline;
+    }
+
+    footer{margin-top:28px;color:var(--muted);font-size:14px;display:flex;gap:12px;flex-wrap:wrap;align-items:center;justify-content:space-between}
+    .links{display:flex;gap:12px;flex-wrap:wrap}
+    .links a{color:var(--muted);text-decoration:none;border-bottom:1px dotted rgba(0,0,0,0.18)}
+    .links a:hover{color:var(--text);border-bottom-color:var(--text)}
+  </style>
 </head>
 <body>
   <div class="wrap">
@@ -112,29 +113,30 @@
     <main>
       <section class="section">
         <h2>Resources</h2>
-        <ul class="link-list">
-          <li><a href="https://www.youtube.com/playlist?list=PLSbNORun5SYybn-lq4iMIpYafoOgkJY6h" target="_blank">AI Interviews &amp; Discussions</a></li>
-          <li><a href="https://www.youtube.com/playlist?list=PLSbNORun5SYyIZyPAPZbCIIDexTdRwXVe" target="_blank">AI Keynotes &amp; Presentations</a></li>
-          <li><a href="https://www.youtube.com/playlist?list=PLSbNORun5SYyxNhKjYR9upceOWaz_BZMo" target="_blank">AI Demos and Tutorials</a></li>
-          <li><a href="https://www.youtube.com/playlist?list=PLSbNORun5SYzATHZLqxndOSG8xY4VNuyW" target="_blank">AI Product Introductions &amp; Announcements</a></li>
-          <li><a href="https://www.youtube.com/playlist?list=PLSbNORun5SYzufKUreTVeY4m8l1O9RF-N" target="_blank">AI Generated Videos</a></li>
-          <li><a href="https://www.youtube.com/playlist?list=PLSbNORun5SYy4LQXYaB5k4QDPC4-8bVe7" target="_blank">AI Videos Created by Bob</a></li>
-        </ul>
+        <p class="subtle">Curated playlists from Bob’s AI Channel</p>
+
+        <a href="https://www.youtube.com/playlist?list=PLSbNORun5SYybn-lq4iMIpYafoOgkJY6h" target="_blank" rel="noopener">AI Interviews &amp; Discussions</a>
+        <a href="https://www.youtube.com/playlist?list=PLSbNORun5SYyIZyPAPZbCIIDexTdRwXVe" target="_blank" rel="noopener">AI Keynotes &amp; Presentations</a>
+        <a href="https://www.youtube.com/playlist?list=PLSbNORun5SYyxNhKjYR9upceOWaz_BZMo" target="_blank" rel="noopener">AI Demos and Tutorials</a>
+        <a href="https://www.youtube.com/playlist?list=PLSbNORun5SYzATHZLqxndOSG8xY4VNuyW" target="_blank" rel="noopener">AI Product Introductions &amp; Announcements</a>
+        <a href="https://www.youtube.com/playlist?list=PLSbNORun5SYzufKUreTVeY4m8l1O9RF-N" target="_blank" rel="noopener">AI Generated Videos</a>
+        <a href="https://www.youtube.com/playlist?list=PLSbNORun5SYy4LQXYaB5k4QDPC4-8bVe7" target="_blank" rel="noopener">AI Videos Created by Bob</a>
       </section>
     </main>
 
     <footer>
       <div class="links">
-        <a href="https://youtube.com/@BobsAIChannel" rel="me">AI YouTube</a>
-        <a href="https://youtube.com/@CaleroBob" rel="me">Music YouTube</a>
-        <a href="https://www.linkedin.com/in/bob-ainsworth-56b686" rel="me">LinkedIn</a>
-        <a href="https://bobainsworthgallery.smugmug.com" rel="me">Photo Gallery</a>
-        <a href="https://open.spotify.com/user/calerobob" rel="me">Spotify</a>
-        <a href="https://bobainsworth.github.io" rel="me">GitHub</a>
+        <a href="https://youtube.com/@BobsAIChannel" rel="me noopener">AI YouTube</a>
+        <a href="https://youtube.com/@CaleroBob" rel="me noopener">Music YouTube</a>
+        <a href="https://www.linkedin.com/in/bob-ainsworth-56b686" rel="me noopener">LinkedIn</a>
+        <a href="https://bobainsworthgallery.smugmug.com" rel="me noopener">Photo Gallery</a>
+        <a href="https://open.spotify.com/user/calerobob" rel="me noopener">Spotify</a>
+        <a href="https://bobainsworth.github.io" rel="me noopener">GitHub</a>
       </div>
       <div>&copy; <span id="y"></span> Bob Ainsworth</div>
     </footer>
   </div>
+
   <script>
     document.getElementById('y') && (document.getElementById('y').textContent = new Date().getFullYear());
   </script>
