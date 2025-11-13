@@ -36,7 +36,7 @@
       border:1px solid rgba(0,0,0,0.08);
       box-shadow:var(--shadow);
       isolation:isolate;
-      min-height:clamp(120px,16vh,190px);
+      min-height:clamp(100px,14vh,160px);
       display:flex;align-items:center;
       padding:clamp(12px,3vw,20px);
       background:
@@ -53,49 +53,45 @@
       box-shadow:0 6px 12px var(--ring);
       user-select:none;
     }
-    h1{margin:0;font-size:clamp(22px,2.6vw,30px)}
+    h1{margin:0;font-size:clamp(22px,2.4vw,28px)}
     .tagline{margin:0;color:var(--muted);font-size:14px}
     main{margin-top:20px}
-    .grid{display:grid;gap:18px;grid-template-columns:repeat(3,minmax(0,1fr))}
-    @media(max-width:900px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
-    @media(max-width:620px){.grid{grid-template-columns:1fr}}
-    .card{
-      display:grid;grid-template-rows:auto 1fr;gap:6px;
-      padding:12px 14px;
-      border-radius:var(--radius);
-      background:var(--card);
-      border:1px solid rgba(0,0,0,0.08);
-      box-shadow:var(--shadow);
-      text-decoration:none;color:inherit;
-      transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease;
-    }
-    .card:hover{
-      transform:translateY(-3px);
-      box-shadow:0 14px 30px rgba(0,0,0,0.12);
-      border-color:var(--accent);
-    }
-    .card h2{margin:0;font-size:clamp(16px,2vw,19px);letter-spacing:.2px}
-    .card p{margin:0;color:var(--muted);font-size:13px;line-height:1.35}
-    .chip{display:none!important}
-    footer{margin-top:28px;color:var(--muted);font-size:14px;display:flex;gap:12px;flex-wrap:wrap;align-items:center;justify-content:space-between}
-    .links{display:flex;gap:12px;flex-wrap:wrap}
-    .links a{color:var(--muted);text-decoration:none;border-bottom:1px dotted rgba(0,0,0,0.18)}
-    .links a:hover{color:var(--text);border-bottom-color:var(--text)}
-    /* Subpage local styles */
+
     nav.breadcrumb{margin:12px 0;color:var(--muted);font-size:14px}
     nav.breadcrumb a{color:var(--muted);text-decoration:none;border-bottom:1px dotted rgba(0,0,0,0.18)}
     nav.breadcrumb a:hover{color:var(--text);border-bottom-color:var(--text)}
+
+    /* Single rectangle (section) with double-spaced links */
     .section{
       background:var(--card);
       border:1px solid rgba(0,0,0,0.08);
       border-radius:var(--radius);
       box-shadow:var(--shadow);
-      padding:16px 18px;
+      padding:24px 26px;
       margin-top:18px;
     }
-  </style>
+    .section h2{margin:0 0 8px 0;font-size:clamp(18px,1.8vw,20px)}
+    .section a{
+      display:block;
+      color:var(--accent);
+      font-weight:600;
+      text-decoration:none;
+      margin:16px 0;
+      line-height:1.9; /* double spacing */
+      letter-spacing:.2px;
+    }
+    .section a:hover{
+      color:var(--accent-2);
+      text-decoration:underline;
+    }
 
+    footer{margin-top:28px;color:var(--muted);font-size:14px;display:flex;gap:12px;flex-wrap:wrap;align-items:center;justify-content:space-between}
+    .links{display:flex;gap:12px;flex-wrap:wrap}
+    .links a{color:var(--muted);text-decoration:none;border-bottom:1px dotted rgba(0,0,0,0.18)}
+    .links a:hover{color:var(--text);border-bottom-color:var(--text)}
+  </style>
 </head>
+
 <body>
   <div class="wrap">
     <header class="hero" role="banner">
@@ -115,7 +111,12 @@
     <main>
       <section class="section">
         <h2>Resources</h2>
-        <p>Drop useful links, embeds, and notes here.</p>
+        <a href="https://www.youtube.com/user/CaleroBob" target="_blank" rel="noopener">
+          Bob’s YouTube Channel – Over 130 Playlists
+        </a>
+        <a href="https://open.spotify.com/user/calerobob" target="_blank" rel="noopener">
+          Bob’s Spotify Channel – Over 100 Playlists
+        </a>
       </section>
     </main>
 
@@ -131,6 +132,7 @@
       <div>&copy; <span id="y"></span> Bob Ainsworth</div>
     </footer>
   </div>
+
   <script>
     document.getElementById('y') && (document.getElementById('y').textContent = new Date().getFullYear());
   </script>
