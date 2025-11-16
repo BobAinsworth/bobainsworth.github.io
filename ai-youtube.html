@@ -20,49 +20,68 @@
       --radius:18px;
       --radius-lg:22px;
     }
-    *{box-sizing:border-box}
-    html,body{margin:0;height:100%}
-    body{
+
+    * { box-sizing:border-box }
+    html, body { margin:0; height:100% }
+
+    body {
       background:var(--bg);
       color:var(--text);
       font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
       -webkit-font-smoothing:antialiased;
       -moz-osx-font-smoothing:grayscale;
     }
-    .wrap{max-width:1200px;margin:auto;padding:18px 20px 64px}
-    .hero{
-      position:relative;overflow:hidden;
+
+    .wrap { max-width:1200px; margin:auto; padding:18px 20px 64px }
+
+    .hero {
+      position:relative; overflow:hidden;
       border-radius:var(--radius-lg);
       border:1px solid rgba(0,0,0,0.08);
       box-shadow:var(--shadow);
       isolation:isolate;
-      /* Reduced header height to match current homepage */
-      min-height:clamp(80px,12vh,120px);
-      display:flex;align-items:center;
+      min-height:clamp(90px,14vh,150px);
+      display:flex; align-items:center;
       padding:clamp(12px,3vw,20px);
       background:
         radial-gradient(400px at 20% 20%, rgba(22,93,255,.16), transparent 60%),
         radial-gradient(500px at 80% 10%, rgba(13,188,121,.14), transparent 70%),
         linear-gradient(180deg, var(--surface), color-mix(in oklab, var(--surface) 70%, white 30%));
     }
-    .brand{display:flex;gap:12px;align-items:center}
-    .logo{
-      width:46px;height:46px;border-radius:12px;
-      display:grid;place-items:center;
+
+    .brand { display:flex; gap:12px; align-items:center }
+
+    .logo {
+      width:46px; height:46px; border-radius:12px;
+      display:grid; place-items:center;
       background:linear-gradient(135deg,var(--accent),var(--accent-2));
-      color:#fff;font-weight:800;
+      color:#fff; font-weight:800;
       box-shadow:0 6px 12px var(--ring);
       user-select:none;
+      text-decoration:none;
     }
-    h1{margin:0;font-size:clamp(22px,2.2vw,28px)}
-    .tagline{margin:0;color:var(--muted);font-size:14px}
-    main{margin-top:20px}
-    nav.breadcrumb{margin:12px 0;color:var(--muted);font-size:14px}
-    nav.breadcrumb a{color:var(--muted);text-decoration:none;border-bottom:1px dotted rgba(0,0,0,0.18)}
-    nav.breadcrumb a:hover{color:var(--text);border-bottom-color:var(--text)}
 
-    /* Single rectangle (card) */
-    .section{
+    h1 { margin:0; font-size:clamp(22px,2.3vw,28px) }
+    .tagline { margin:0; color:var(--muted); font-size:14px }
+
+    main { margin-top:20px }
+
+    nav.breadcrumb {
+      margin:12px 0;
+      color:var(--muted);
+      font-size:14px;
+    }
+    nav.breadcrumb a {
+      color:var(--muted);
+      text-decoration:none;
+      border-bottom:1px dotted rgba(0,0,0,0.18);
+    }
+    nav.breadcrumb a:hover {
+      color:var(--text);
+      border-bottom-color:var(--text);
+    }
+
+    .section {
       background:var(--card);
       border:1px solid rgba(0,0,0,0.08);
       border-radius:var(--radius);
@@ -70,32 +89,56 @@
       padding:22px 24px;
       margin-top:18px;
     }
-    .section h2{margin:0 0 6px 0;font-size:clamp(18px,1.8vw,20px)}
-    .section .subtle{margin:0 0 14px 0;color:var(--muted);font-size:13px}
+    .section h2 {
+      margin:0 0 8px 0;
+      font-size:clamp(18px,1.8vw,20px);
+    }
+    .section .subtle {
+      margin:0 0 14px 0;
+      color:var(--muted);
+      font-size:13px;
+    }
 
-    /* Double-spaced block links */
-    .section a{
+    .section a {
       display:block;
       color:var(--accent);
       font-weight:600;
       text-decoration:none;
-      margin:14px 0; /* spacing between items */
-      line-height:1.9; /* visually "double spaced" */
-      letter-spacing:.1px;
+      margin:14px 0;
+      line-height:1.9;
     }
-    .section a:hover{
+    .section a:hover {
       color:var(--accent-2);
       text-decoration:underline;
     }
 
-    footer{margin-top:28px;color:var(--muted);font-size:14px;display:flex;gap:12px;flex-wrap:wrap;align-items:center;justify-content:space-between}
-    .links{display:flex;gap:12px;flex-wrap:wrap}
-    .links a{color:var(--muted);text-decoration:none;border-bottom:1px dotted rgba(0,0,0,0.18)}
-    .links a:hover{color:var(--text);border-bottom-color:var(--text)}
+    footer {
+      margin-top:28px;
+      color:var(--muted);
+      font-size:14px;
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      align-items:center;
+      justify-content:space-between;
+    }
+
+    .links { display:flex; gap:12px; flex-wrap:wrap }
+    .links a {
+      color:var(--muted);
+      text-decoration:none;
+      border-bottom:1px dotted rgba(0,0,0,0.18);
+    }
+    .links a:hover {
+      color:var(--text);
+      border-bottom-color:var(--text);
+    }
   </style>
 </head>
+
 <body>
   <div class="wrap">
+
     <header class="hero" role="banner">
       <div class="brand">
         <a href="index.html" class="logo" aria-label="Home">BA</a>
@@ -106,8 +149,9 @@
       </div>
     </header>
 
-    <nav class="breadcrumb" aria-label="Breadcrumb">
-      <a href="index.html">Home</a> &nbsp;→&nbsp; <span>AI YouTube Videos</span>
+    <nav class="breadcrumb">
+      <a href="index.html">Home</a> &nbsp;→&nbsp;
+      <span>AI YouTube Videos</span>
     </nav>
 
     <main>
@@ -115,12 +159,18 @@
         <h2>Resources</h2>
         <p class="subtle">Curated playlists from Bob’s AI Channel</p>
 
+        <!-- The root playlists you already had -->
         <a href="https://www.youtube.com/playlist?list=PLSbNORun5SYybn-lq4iMIpYafoOgkJY6h" target="_blank" rel="noopener">AI Interviews &amp; Discussions</a>
         <a href="https://www.youtube.com/playlist?list=PLSbNORun5SYyIZyPAPZbCIIDexTdRwXVe" target="_blank" rel="noopener">AI Keynotes &amp; Presentations</a>
         <a href="https://www.youtube.com/playlist?list=PLSbNORun5SYyxNhKjYR9upceOWaz_BZMo" target="_blank" rel="noopener">AI Demos and Tutorials</a>
         <a href="https://www.youtube.com/playlist?list=PLSbNORun5SYzATHZLqxndOSG8xY4VNuyW" target="_blank" rel="noopener">AI Product Introductions &amp; Announcements</a>
         <a href="https://www.youtube.com/playlist?list=PLSbNORun5SYzufKUreTVeY4m8l1O9RF-N" target="_blank" rel="noopener">AI Generated Videos</a>
         <a href="https://www.youtube.com/playlist?list=PLSbNORun5SYy4LQXYaB5k4QDPC4-8bVe7" target="_blank" rel="noopener">AI Videos Created by Bob</a>
+
+        <!-- Placeholder for future inside-the-folder pages -->
+        <a href="ai-youtube/" style="margin-top:22px; font-style:italic;">
+          (Folder ready for future AI YouTube article pages)
+        </a>
       </section>
     </main>
 
@@ -133,12 +183,15 @@
         <a href="https://open.spotify.com/user/calerobob" rel="me noopener">Spotify</a>
         <a href="https://bobainsworth.github.io" rel="me noopener">GitHub</a>
       </div>
+
       <div>&copy; <span id="y"></span> Bob Ainsworth</div>
     </footer>
+
   </div>
 
   <script>
-    document.getElementById('y') && (document.getElementById('y').textContent = new Date().getFullYear());
+    var yearSpan = document.getElementById('y');
+    if (yearSpan) yearSpan.textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
