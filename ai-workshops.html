@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>AI Workshops and Useful Advice — Bob Ainsworth</title>
-  <meta name="description" content="Slides, handouts, sign‑ups, and practical tips." />
+  <title>AI Workshops and Advice — Bob Ainsworth</title>
+  <meta name="description" content="Slides, handouts, and sign-ups for upcoming AI sessions." />
 
   <style>
     :root{
@@ -20,8 +20,10 @@
       --radius:18px;
       --radius-lg:22px;
     }
+
     *{box-sizing:border-box}
     html,body{margin:0;height:100%}
+
     body{
       background:var(--bg);
       color:var(--text);
@@ -29,14 +31,16 @@
       -webkit-font-smoothing:antialiased;
       -moz-osx-font-smoothing:grayscale;
     }
+
     .wrap{max-width:1200px;margin:auto;padding:18px 20px 64px}
+
     .hero{
       position:relative;overflow:hidden;
       border-radius:var(--radius-lg);
       border:1px solid rgba(0,0,0,0.08);
       box-shadow:var(--shadow);
       isolation:isolate;
-      min-height:clamp(120px,16vh,190px);
+      min-height:clamp(90px,14vh,150px);
       display:flex;align-items:center;
       padding:clamp(12px,3vw,20px);
       background:
@@ -44,7 +48,9 @@
         radial-gradient(500px at 80% 10%, rgba(13,188,121,.14), transparent 70%),
         linear-gradient(180deg, var(--surface), color-mix(in oklab, var(--surface) 70%, white 30%));
     }
+
     .brand{display:flex;gap:12px;align-items:center}
+
     .logo{
       width:46px;height:46px;border-radius:12px;
       display:grid;place-items:center;
@@ -52,87 +58,140 @@
       color:#fff;font-weight:800;
       box-shadow:0 6px 12px var(--ring);
       user-select:none;
+      text-decoration:none;
     }
-    h1{margin:0;font-size:clamp(22px,2.6vw,30px)}
+
+    h1{margin:0;font-size:clamp(22px,2.3vw,28px)}
     .tagline{margin:0;color:var(--muted);font-size:14px}
+
     main{margin-top:20px}
-    .grid{display:grid;gap:18px;grid-template-columns:repeat(3,minmax(0,1fr))}
-    @media(max-width:900px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
-    @media(max-width:620px){.grid{grid-template-columns:1fr}}
-    .card{
-      display:grid;grid-template-rows:auto 1fr;gap:6px;
-      padding:12px 14px;
-      border-radius:var(--radius);
-      background:var(--card);
-      border:1px solid rgba(0,0,0,0.08);
-      box-shadow:var(--shadow);
-      text-decoration:none;color:inherit;
-      transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+
+    nav.breadcrumb{
+      margin:12px 0;
+      color:var(--muted);
+      font-size:14px;
     }
-    .card:hover{
-      transform:translateY(-3px);
-      box-shadow:0 14px 30px rgba(0,0,0,0.12);
-      border-color:var(--accent);
+    nav.breadcrumb a{
+      color:var(--muted);
+      text-decoration:none;
+      border-bottom:1px dotted rgba(0,0,0,0.18);
     }
-    .card h2{margin:0;font-size:clamp(16px,2vw,19px);letter-spacing:.2px}
-    .card p{margin:0;color:var(--muted);font-size:13px;line-height:1.35}
-    .chip{display:none!important}
-    footer{margin-top:28px;color:var(--muted);font-size:14px;display:flex;gap:12px;flex-wrap:wrap;align-items:center;justify-content:space-between}
-    .links{display:flex;gap:12px;flex-wrap:wrap}
-    .links a{color:var(--muted);text-decoration:none;border-bottom:1px dotted rgba(0,0,0,0.18)}
-    .links a:hover{color:var(--text);border-bottom-color:var(--text)}
-    /* Subpage local styles */
-    nav.breadcrumb{margin:12px 0;color:var(--muted);font-size:14px}
-    nav.breadcrumb a{color:var(--muted);text-decoration:none;border-bottom:1px dotted rgba(0,0,0,0.18)}
-    nav.breadcrumb a:hover{color:var(--text);border-bottom-color:var(--text)}
+    nav.breadcrumb a:hover{
+      color:var(--text);
+      border-bottom-color:var(--text);
+    }
+
     .section{
       background:var(--card);
       border:1px solid rgba(0,0,0,0.08);
       border-radius:var(--radius);
       box-shadow:var(--shadow);
-      padding:16px 18px;
+      padding:22px 24px;
       margin-top:18px;
     }
-  </style>
 
+    .section h2{
+      margin:0 0 8px 0;
+      font-size:clamp(18px,1.8vw,20px);
+    }
+
+    .section .subtle{
+      margin:0 0 14px 0;
+      color:var(--muted);
+      font-size:13px;
+    }
+
+    .section a{
+      display:block;
+      color:var(--accent);
+      font-weight:600;
+      text-decoration:none;
+      margin:14px 0;
+      line-height:1.9;
+    }
+    .section a:hover{
+      color:var(--accent-2);
+      text-decoration:underline;
+    }
+
+    footer{
+      margin-top:28px;
+      color:var(--muted);
+      font-size:14px;
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      align-items:center;
+      justify-content:space-between;
+    }
+
+    .links{display:flex;gap:12px;flex-wrap:wrap}
+    .links a{
+      color:var(--muted);
+      text-decoration:none;
+      border-bottom:1px dotted rgba(0,0,0,0.18);
+    }
+    .links a:hover{
+      color:var(--text);
+      border-bottom-color:var(--text);
+    }
+  </style>
 </head>
+
 <body>
   <div class="wrap">
     <header class="hero" role="banner">
       <div class="brand">
         <a href="index.html" class="logo" aria-label="Home">BA</a>
         <div>
-          <h1>AI Workshops and Useful Advice</h1>
-          <p class="tagline">Slides, handouts, sign‑ups, and practical tips.</p>
+          <h1>AI Workshops and Advice</h1>
+          <p class="tagline">Slides, handouts, and sign-ups for upcoming sessions.</p>
         </div>
       </div>
     </header>
 
     <nav class="breadcrumb" aria-label="Breadcrumb">
-      <a href="index.html">Home</a> &nbsp;→&nbsp; <span>AI Workshops and Useful Advice</span>
+      <a href="index.html">Home</a> &nbsp;→&nbsp;
+      <span>AI Workshops and Advice</span>
     </nav>
 
     <main>
       <section class="section">
         <h2>Resources</h2>
-        <p>Drop useful links, embeds, and notes here.</p>
+        <p class="subtle">
+          This page will collect links to workshop slides, handouts, example prompts, and follow-up materials.
+          As you add more workshops, you can link to individual pages stored inside the <code>ai-workshops/</code> folder.
+        </p>
+
+        <!-- Examples for future use (currently commented out)
+        <a href="ai-workshops/session-1-overview.html">Session 1 &mdash; Introduction to Generative AI</a>
+        <a href="ai-workshops/session-2-prompts.html">Session 2 &mdash; Writing Better Prompts</a>
+        <a href="ai-workshops/session-3-tools.html">Session 3 &mdash; Tools, Workflows, and Examples</a>
+        -->
+
+        <a href="ai-workshops/" style="margin-top:22px;font-style:italic;">
+          (Folder ready for future AI workshop pages &amp; materials)
+        </a>
       </section>
     </main>
 
     <footer>
       <div class="links">
-        <a href="https://youtube.com/@BobsAIChannel" rel="me">AI YouTube</a>
-        <a href="https://youtube.com/@CaleroBob" rel="me">Music YouTube</a>
-        <a href="https://www.linkedin.com/in/bob-ainsworth-56b686" rel="me">LinkedIn</a>
-        <a href="https://bobainsworthgallery.smugmug.com" rel="me">Photo Gallery</a>
-        <a href="https://open.spotify.com/user/calerobob" rel="me">Spotify</a>
-        <a href="https://bobainsworth.github.io" rel="me">GitHub</a>
+        <a href="https://youtube.com/@BobsAIChannel" rel="me noopener">AI YouTube</a>
+        <a href="https://youtube.com/@CaleroBob" rel="me noopener">Music YouTube</a>
+        <a href="https://www.linkedin.com/in/bob-ainsworth-56b686" rel="me noopener">LinkedIn</a>
+        <a href="https://bobainsworthgallery.smugmug.com" rel="me noopener">Photo Gallery</a>
+        <a href="https://open.spotify.com/user/calerobob" rel="me noopener">Spotify</a>
+        <a href="https://bobainsworth.github.io" rel="me noopener">GitHub</a>
       </div>
+
       <div>&copy; <span id="y"></span> Bob Ainsworth</div>
     </footer>
   </div>
+
   <script>
-    document.getElementById('y') && (document.getElementById('y').textContent = new Date().getFullYear());
+    var yearSpan = document.getElementById('y');
+    if (yearSpan) yearSpan.textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
