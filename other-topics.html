@@ -4,7 +4,8 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Other Topics — Bob Ainsworth</title>
-  <meta name="description" content="Catch-all page for other topics of interest." />
+  <meta name="description" content="A home for experiments, side notes, and topics that don’t fit elsewhere yet." />
+
   <style>
     :root{
       --bg:#f7fafc;
@@ -15,53 +16,181 @@
       --accent:#165dff;
       --accent-2:#0dbc79;
       --ring:rgba(22,93,255,0.25);
-      --shadow:0 8px 20px rgba(12, 20, 38, 0.12);
+      --shadow:0 8px 20px rgba(12,26,75,0.08);
+      --radius:18px;
+      --radius-lg:22px;
     }
-    *{box-sizing:border-box;margin:0;padding:0;}
+
+    *{box-sizing:border-box}
+    html,body{margin:0;height:100%}
+
     body{
-      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;
       background:var(--bg);
       color:var(--text);
-      line-height:1.6;
-      padding:24px;
+      font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
     }
-    .page{max-width:900px;margin:0 auto;}
-    a{color:var(--accent);}
-    header{margin-bottom:18px;}
-    header h1{font-size:24px;margin-bottom:4px;}
-    header p{color:var(--muted);font-size:14px;}
-    .back-link{
-      display:inline-block;
-      margin-bottom:16px;
-      font-size:14px;
-      text-decoration:none;
-      color:var(--accent);
-    }
-    .card{
-      background:var(--card);
-      border-radius:18px;
-      padding:18px 20px;
+
+    .wrap{max-width:1200px;margin:auto;padding:18px 20px 64px}
+
+    .hero{
+      position:relative;overflow:hidden;
+      border-radius:var(--radius-lg);
+      border:1px solid rgba(0,0,0,0.08);
       box-shadow:var(--shadow);
-      border:1px solid #d4ddff;
+      isolation:isolate;
+      min-height:clamp(90px,14vh,150px);
+      display:flex;align-items:center;
+      padding:clamp(12px,3vw,20px);
+      background:
+        radial-gradient(400px at 20% 20%, rgba(22,93,255,.16), transparent 60%),
+        radial-gradient(500px at 80% 10%, rgba(13,188,121,.14), transparent 70%),
+        linear-gradient(180deg, var(--surface), color-mix(in oklab, var(--surface) 70%, white 30%));
     }
-    h2{font-size:18px;margin-bottom:8px;}
-    ul{margin-left:20px;margin-top:6px;}
-    li{margin-bottom:4px;}
+
+    .brand{display:flex;gap:12px;align-items:center}
+
+    .logo{
+      width:46px;height:46px;border-radius:12px;
+      display:grid;place-items:center;
+      background:linear-gradient(135deg,var(--accent),var(--accent-2));
+      color:#fff;font-weight:800;
+      box-shadow:0 6px 12px var(--ring);
+      user-select:none;
+      text-decoration:none;
+    }
+
+    h1{margin:0;font-size:clamp(22px,2.3vw,28px)}
+    .tagline{margin:0;color:var(--muted);font-size:14px}
+
+    main{margin-top:20px}
+
+    nav.breadcrumb{
+      margin:12px 0;
+      color:var(--muted);
+      font-size:14px;
+    }
+    nav.breadcrumb a{
+      color:var(--muted);
+      text-decoration:none;
+      border-bottom:1px dotted rgba(0,0,0,0.18);
+    }
+    nav.breadcrumb a:hover{
+      color:var(--text);
+      border-bottom-color:var(--text);
+    }
+
+    .section{
+      background:var(--card);
+      border:1px solid rgba(0,0,0,0.08);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:22px 24px;
+      margin-top:18px;
+    }
+
+    .section h2{
+      margin:0 0 8px 0;
+      font-size:clamp(18px,1.8vw,20px);
+    }
+
+    .section .subtle{
+      margin:0 0 14px 0;
+      color:var(--muted);
+      font-size:13px;
+    }
+
+    .section a{
+      display:block;
+      color:var(--accent);
+      font-weight:600;
+      text-decoration:none;
+      margin:14px 0;
+      line-height:1.9;
+    }
+    .section a:hover{
+      color:var(--accent-2);
+      text-decoration:underline;
+    }
+
+    footer{
+      margin-top:28px;
+      color:var(--muted);
+      font-size:14px;
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      align-items:center;
+      justify-content:space-between;
+    }
+
+    .links{display:flex;gap:12px;flex-wrap:wrap}
+    .links a{
+      color:var(--muted);
+      text-decoration:none;
+      border-bottom:1px dotted rgba(0,0,0,0.18);
+    }
+    .links a:hover{
+      color:var(--text);
+      border-bottom-color:var(--text);
+    }
   </style>
 </head>
-<body>
-  <main class="page">
-    <a class="back-link" href="index.html">← Back to Home</a>
 
-    <header>
-      <h1>Other Topics</h1>
-      <p>Other topics of interest that don’t quite fit into the main categories.</p>
+<body>
+  <div class="wrap">
+    <header class="hero" role="banner">
+      <div class="brand">
+        <a href="index.html" class="logo" aria-label="Home">BA</a>
+        <div>
+          <h1>Other Topics</h1>
+          <p class="tagline">Experiments, misc notes, and things that don’t have a home yet.</p>
+        </div>
+      </div>
     </header>
 
-    <section class="card">
-      <h2>Resources</h2>
-      <p>Drop useful links, embeds, and notes here.</p>
-    </section>
-  </main>
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="index.html">Home</a> &nbsp;→&nbsp;
+      <span>Other Topics</span>
+    </nav>
+
+    <main>
+      <section class="section">
+        <h2>Resources</h2>
+        <p class="subtle">
+          Use this page as a staging area for ideas and links that may become their own sections later.
+          When something grows big enough, you can move or copy it into a new dedicated topic.
+        </p>
+
+        <!-- Future pages (commented out for now)
+        <a href="other-topics/experiment-1.html">Experiment #1</a>
+        <a href="other-topics/reading-list.html">Reading List</a>
+        -->
+
+        <a href="other-topics/" style="margin-top:22px;font-style:italic;">
+          (Folder ready for future “other topics” pages)
+        </a>
+      </section>
+    </main>
+
+    <footer>
+      <div class="links">
+        <a href="https://youtube.com/@BobsAIChannel" rel="me noopener">AI YouTube</a>
+        <a href="https://youtube.com/@CaleroBob" rel="me noopener">Music YouTube</a>
+        <a href="https://www.linkedin.com/in/bob-ainsworth-56b686" rel="me noopener">LinkedIn</a>
+        <a href="https://bobainsworthgallery.smugmug.com" rel="me noopener">Photo Gallery</a>
+        <a href="https://open.spotify.com/user/calerobob" rel="me noopener">Spotify</a>
+        <a href="https://bobainsworth.github.io" rel="me noopener">GitHub</a>
+      </div>
+
+      <div>&copy; <span id="y"></span> Bob Ainsworth</div>
+    </footer>
+  </div>
+
+  <script>
+    var yearSpan = document.getElementById('y');
+    if (yearSpan) yearSpan.textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
