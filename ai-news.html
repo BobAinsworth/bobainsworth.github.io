@@ -20,8 +20,10 @@
       --radius:18px;
       --radius-lg:22px;
     }
+
     *{box-sizing:border-box}
     html,body{margin:0;height:100%}
+
     body{
       background:var(--bg);
       color:var(--text);
@@ -29,41 +31,58 @@
       -webkit-font-smoothing:antialiased;
       -moz-osx-font-smoothing:grayscale;
     }
+
     .wrap{max-width:1200px;margin:auto;padding:18px 20px 64px}
+
     .hero{
-      position:relative;overflow:hidden;
+      position:relative;
+      overflow:hidden;
       border-radius:var(--radius-lg);
       border:1px solid rgba(0,0,0,0.08);
       box-shadow:var(--shadow);
       isolation:isolate;
       min-height:clamp(90px,14vh,150px);
-      display:flex;align-items:center;
+      display:flex;
+      align-items:center;
       padding:clamp(12px,3vw,20px);
       background:
         radial-gradient(400px at 20% 20%, rgba(22,93,255,.16), transparent 60%),
         radial-gradient(500px at 80% 10%, rgba(13,188,121,.14), transparent 70%),
         linear-gradient(180deg, var(--surface), color-mix(in oklab, var(--surface) 70%, white 30%));
     }
+
     .brand{display:flex;gap:12px;align-items:center}
+
     .logo{
-      width:46px;height:46px;border-radius:12px;
-      display:grid;place-items:center;
+      width:46px;
+      height:46px;
+      border-radius:12px;
+      display:grid;
+      place-items:center;
       background:linear-gradient(135deg,var(--accent),var(--accent-2));
-      color:#fff;font-weight:800;
+      color:#fff;
+      font-weight:800;
       box-shadow:0 6px 12px var(--ring);
       user-select:none;
       text-decoration:none;
     }
+
     h1{margin:0;font-size:clamp(22px,2.3vw,28px)}
     .tagline{margin:0;color:var(--muted);font-size:14px}
     main{margin-top:20px}
 
-    nav.breadcrumb{margin:12px 0;color:var(--muted);font-size:14px}
+    nav.breadcrumb{
+      margin:12px 0;
+      color:var(--muted);
+      font-size:14px;
+    }
+
     nav.breadcrumb a{
       color:var(--muted);
       text-decoration:none;
       border-bottom:1px dotted rgba(0,0,0,0.18);
     }
+
     nav.breadcrumb a:hover{
       color:var(--text);
       border-bottom-color:var(--text);
@@ -77,11 +96,10 @@
       padding:22px 24px;
       margin-top:18px;
     }
-    .section h2{margin:0 0 8px 0;font-size:clamp(18px,1.8vw,20px)}
-    .section .subtle{
-      margin:0 0 14px 0;
-      color:var(--muted);
-      font-size:13px;
+
+    .section h2{
+      margin:0 0 8px 0;
+      font-size:clamp(18px,1.8vw,20px);
     }
 
     .section a{
@@ -93,9 +111,30 @@
       line-height:1.9;
       letter-spacing:.1px;
     }
+
     .section a:hover{
       color:var(--accent-2);
       text-decoration:underline;
+    }
+
+    .source{
+      margin:18px 0 24px;
+    }
+
+    .source:last-child{
+      margin-bottom:0;
+    }
+
+    .source a{
+      margin:0 0 4px;
+      line-height:1.5;
+    }
+
+    .source-description{
+      margin:0;
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.55;
     }
 
     footer{
@@ -108,18 +147,26 @@
       align-items:center;
       justify-content:space-between;
     }
-    .links{display:flex;gap:12px;flex-wrap:wrap}
+
+    .links{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+
     .links a{
       color:var(--muted);
       text-decoration:none;
       border-bottom:1px dotted rgba(0,0,0,0.18);
     }
+
     .links a:hover{
       color:var(--text);
       border-bottom-color:var(--text);
     }
   </style>
 </head>
+
 <body>
   <div class="wrap">
     <header class="hero" role="banner">
@@ -139,19 +186,67 @@
 
     <main>
       <section class="section">
-        <h2>Resources</h2>
-        <p class="subtle">Drop useful links, embeds, and specific article pages here as your AI News collection grows.</p>
+        <h2>How I Keep Current on AI News</h2>
 
-        <!-- First inside-the-folder page -->
-        <a href="ai-news/ai-news-article-1.html">
-          AI News Article #1 &mdash; example detailed page (placeholder, customize later)
-        </a>
+        <div class="source">
+          <a href="https://news.google.com/topics/CAAqIAgKIhpDQkFTRFFvSEwyMHZNRzFyZWhJQ1pXNG9BQVAB?hl=en-US&amp;gl=US&amp;ceid=US%3Aen"
+             target="_blank"
+             rel="noopener">
+            Following “Artificial Intelligence” as a Topic on Google News – Daily
+          </a>
+          <p class="source-description">
+            All of the top AI news of the day from many sources. This is a must!
+          </p>
+        </div>
 
-        <!-- You can add external links or more article pages below as you grow the section -->
-        <!--
-        <a href="ai-news/ai-news-article-2.html">AI News Article #2 &mdash; another topic</a>
-        <a href="https://example.com" target="_blank" rel="noopener">External AI news link</a>
-        -->
+        <div class="source">
+          <a href="https://www.youtube.com/@peterdiamandis/videos?view=0&amp;sort=dd&amp;shelf_id=2"
+             target="_blank"
+             rel="noopener">
+            Peter H. Diamandis “Moonshots Podcast” – Once or twice weekly
+          </a>
+          <p class="source-description">
+            Tracking the future of technology and how it impacts humanity.<br>
+            Peter Diamandis, Salim Ismail, Dave Blundin, Alexander Wissner-Gross
+          </p>
+        </div>
+
+        <div class="source">
+          <a href="https://www.youtube.com/@allin/videos"
+             target="_blank"
+             rel="noopener">
+            All-In Podcast – Once or twice weekly
+          </a>
+          <p class="source-description">
+            Chamath Palihapitiya, Jason Calacanis, David Sacks &amp; David Friedberg<br>
+            VCs, company founders &amp; entrepreneurs all closely following technology.
+          </p>
+        </div>
+
+        <div class="source">
+          <a href="https://www.youtube.com/@ycombinator"
+             target="_blank"
+             rel="noopener">
+            Y Combinator – Selected podcasts
+          </a>
+          <p class="source-description">
+            The premier Silicon Valley startup accelerator that provides seed funding,
+            mentorship, and intensive networking to early-stage companies.
+          </p>
+        </div>
+
+        <div class="source">
+          <a href="https://www.youtube.com/@WesRoth"
+             target="_blank"
+             rel="noopener">
+            Wes Roth – Selected podcasts
+          </a>
+          <p class="source-description">
+            Long-form, unfiltered discussions with leading AI researchers, engineers,
+            and tech visionaries exploring cutting-edge developments in AI, robotics,
+            and emerging technologies.
+          </p>
+        </div>
       </section>
     </main>
 
@@ -164,6 +259,7 @@
         <a href="https://open.spotify.com/user/calerobob" rel="me noopener">Spotify</a>
         <a href="https://bobainsworth.github.io" rel="me noopener">GitHub</a>
       </div>
+
       <div>&copy; <span id="y"></span> Bob Ainsworth</div>
     </footer>
   </div>
