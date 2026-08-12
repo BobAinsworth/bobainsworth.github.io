@@ -35,13 +35,15 @@
     .wrap{max-width:1200px;margin:auto;padding:18px 20px 64px}
 
     .hero{
-      position:relative;overflow:hidden;
+      position:relative;
+      overflow:hidden;
       border-radius:var(--radius-lg);
       border:1px solid rgba(0,0,0,0.08);
       box-shadow:var(--shadow);
       isolation:isolate;
       min-height:clamp(90px,14vh,150px);
-      display:flex;align-items:center;
+      display:flex;
+      align-items:center;
       padding:clamp(12px,3vw,20px);
       background:
         radial-gradient(400px at 20% 20%, rgba(22,93,255,.16), transparent 60%),
@@ -52,10 +54,14 @@
     .brand{display:flex;gap:12px;align-items:center}
 
     .logo{
-      width:46px;height:46px;border-radius:12px;
-      display:grid;place-items:center;
+      width:46px;
+      height:46px;
+      border-radius:12px;
+      display:grid;
+      place-items:center;
       background:linear-gradient(135deg,var(--accent),var(--accent-2));
-      color:#fff;font-weight:800;
+      color:#fff;
+      font-weight:800;
       box-shadow:0 6px 12px var(--ring);
       user-select:none;
       text-decoration:none;
@@ -63,7 +69,6 @@
 
     h1{margin:0;font-size:clamp(22px,2.3vw,28px)}
     .tagline{margin:0;color:var(--muted);font-size:14px}
-
     main{margin-top:20px}
 
     nav.breadcrumb{
@@ -71,11 +76,13 @@
       color:var(--muted);
       font-size:14px;
     }
+
     nav.breadcrumb a{
       color:var(--muted);
       text-decoration:none;
       border-bottom:1px dotted rgba(0,0,0,0.18);
     }
+
     nav.breadcrumb a:hover{
       color:var(--text);
       border-bottom-color:var(--text);
@@ -109,6 +116,7 @@
       margin:14px 0;
       line-height:1.9;
     }
+
     .section a:hover{
       color:var(--accent-2);
       text-decoration:underline;
@@ -125,12 +133,18 @@
       justify-content:space-between;
     }
 
-    .links{display:flex;gap:12px;flex-wrap:wrap}
+    .links{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+
     .links a{
       color:var(--muted);
       text-decoration:none;
       border-bottom:1px dotted rgba(0,0,0,0.18);
     }
+
     .links a:hover{
       color:var(--text);
       border-bottom-color:var(--text);
@@ -158,19 +172,45 @@
     <main>
       <section class="section">
         <h2>Resources</h2>
+
         <p class="subtle">
-          Use this page to link to galleries, specific species, or memorable outings. Detailed pages can live
-          inside the <code>bird-photography/</code> folder (for example, “Ranch birds”, “Marsh trips”, or “Favorite shots”).
+          Explore Bob’s favorite bird photographs, recent shots, and galleries organized by bird type.
         </p>
 
-        <!-- Examples for future use (currently commented out)
-        <a href="bird-photography/ranch-birds.html">Birds of the Ranch</a>
-        <a href="bird-photography/marsh-trips.html">Marsh Trips &amp; Wetlands</a>
-        <a href="bird-photography/favorite-shots.html">Favorite Shots &amp; Stories</a>
-        -->
+        <a href="https://bobainsworthgallery.smugmug.com/A-Few-Favorites/A-Few-Favorites"
+           target="_blank"
+           rel="noopener">
+          A Few Favorites
+        </a>
 
-        <a href="bird-photography/" style="margin-top:22px;font-style:italic;">
-          (Folder ready for future bird photography pages &amp; galleries)
+        <a href="https://bobainsworthgallery.smugmug.com/A-Few-Recent-Shots/A-Few-Recent-Shots"
+           target="_blank"
+           rel="noopener">
+          A Few Recent Shots
+        </a>
+
+        <a href="https://bobainsworthgallery.smugmug.com/Waterfowl"
+           target="_blank"
+           rel="noopener">
+          Waterfowl
+        </a>
+
+        <a href="https://bobainsworthgallery.smugmug.com/Shorebirds"
+           target="_blank"
+           rel="noopener">
+          Shorebirds
+        </a>
+
+        <a href="https://bobainsworthgallery.smugmug.com/Wading-Birds"
+           target="_blank"
+           rel="noopener">
+          Herons and Egrets
+        </a>
+
+        <a href="https://bobainsworthgallery.smugmug.com/Raptors"
+           target="_blank"
+           rel="noopener">
+          Raptors
         </a>
       </section>
     </main>
