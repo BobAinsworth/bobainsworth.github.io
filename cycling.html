@@ -35,13 +35,15 @@
     .wrap{max-width:1200px;margin:auto;padding:18px 20px 64px}
 
     .hero{
-      position:relative;overflow:hidden;
+      position:relative;
+      overflow:hidden;
       border-radius:var(--radius-lg);
       border:1px solid rgba(0,0,0,0.08);
       box-shadow:var(--shadow);
       isolation:isolate;
       min-height:clamp(90px,14vh,150px);
-      display:flex;align-items:center;
+      display:flex;
+      align-items:center;
       padding:clamp(12px,3vw,20px);
       background:
         radial-gradient(400px at 20% 20%, rgba(22,93,255,.16), transparent 60%),
@@ -52,10 +54,14 @@
     .brand{display:flex;gap:12px;align-items:center}
 
     .logo{
-      width:46px;height:46px;border-radius:12px;
-      display:grid;place-items:center;
+      width:46px;
+      height:46px;
+      border-radius:12px;
+      display:grid;
+      place-items:center;
       background:linear-gradient(135deg,var(--accent),var(--accent-2));
-      color:#fff;font-weight:800;
+      color:#fff;
+      font-weight:800;
       box-shadow:0 6px 12px var(--ring);
       user-select:none;
       text-decoration:none;
@@ -63,7 +69,6 @@
 
     h1{margin:0;font-size:clamp(22px,2.3vw,28px)}
     .tagline{margin:0;color:var(--muted);font-size:14px}
-
     main{margin-top:20px}
 
     nav.breadcrumb{
@@ -71,11 +76,13 @@
       color:var(--muted);
       font-size:14px;
     }
+
     nav.breadcrumb a{
       color:var(--muted);
       text-decoration:none;
       border-bottom:1px dotted rgba(0,0,0,0.18);
     }
+
     nav.breadcrumb a:hover{
       color:var(--text);
       border-bottom-color:var(--text);
@@ -95,6 +102,11 @@
       font-size:clamp(18px,1.8vw,20px);
     }
 
+    .section h3{
+      margin:30px 0 8px;
+      font-size:17px;
+    }
+
     .section .subtle{
       margin:0 0 14px 0;
       color:var(--muted);
@@ -109,9 +121,26 @@
       margin:14px 0;
       line-height:1.9;
     }
+
     .section a:hover{
       color:var(--accent-2);
       text-decoration:underline;
+    }
+
+    .resource{
+      margin:18px 0 24px;
+    }
+
+    .resource a{
+      margin:0 0 4px;
+      line-height:1.5;
+    }
+
+    .resource-description{
+      margin:0;
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.55;
     }
 
     footer{
@@ -125,12 +154,18 @@
       justify-content:space-between;
     }
 
-    .links{display:flex;gap:12px;flex-wrap:wrap}
+    .links{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+
     .links a{
       color:var(--muted);
       text-decoration:none;
       border-bottom:1px dotted rgba(0,0,0,0.18);
     }
+
     .links a:hover{
       color:var(--text);
       border-bottom-color:var(--text);
@@ -158,20 +193,69 @@
     <main>
       <section class="section">
         <h2>Resources</h2>
+
         <p class="subtle">
-          This page can link to ride notes, favorite routes, training ideas, or cycling stories.
-          Detailed pages can live inside the <code>cycling/</code> folder.
+          I’ve been a member of Almaden Cycle Touring Club (ACTC) for 30 years.
+          Here are a few links about my bike club.
         </p>
 
-        <!-- Future pages (commented out for now)
-        <a href="cycling/favorite-routes.html">Favorite Local Routes</a>
-        <a href="cycling/gear-notes.html">Bike & Gear Notes</a>
-        <a href="cycling/training-journal.html">Training Journal</a>
-        -->
+        <div class="resource">
+          <a href="https://www.actc.org/"
+             target="_blank"
+             rel="noopener">
+            Almaden Cycle Touring Club (ACTC) – Website
+          </a>
+          <p class="resource-description">
+            My bike club with over 1,000 members.
+          </p>
+        </div>
 
-        <a href="cycling/" style="margin-top:22px;font-style:italic;">
-          (Folder ready for future cycling pages &amp; ride logs)
-        </a>
+        <div class="resource">
+          <a href="https://www.facebook.com/groups/4245688926/"
+             target="_blank"
+             rel="noopener">
+            Almaden Cycle Touring Club (ACTC) – Facebook page
+          </a>
+          <p class="resource-description">
+            My bike club’s Facebook page.
+          </p>
+        </div>
+
+        <div class="resource">
+          <a href="https://www.facebook.com/groups/466780290174026"
+             target="_blank"
+             rel="noopener">
+            Tierra Bella Bike Tour – Facebook page
+          </a>
+          <p class="resource-description">
+            ACTC’s annual event with up to 1,000 riders.
+          </p>
+        </div>
+
+        <div class="resource">
+          <a href="https://bobainsworth.github.io/TB26-Marketing-Site/index.html"
+             target="_blank"
+             rel="noopener">
+            Tierra Bella Marketing Resources Center – Unofficial website I built
+          </a>
+          <p class="resource-description">
+            I was marketing co-captain for TB26.
+          </p>
+        </div>
+
+        <h3>Other</h3>
+
+        <div class="resource">
+          <a href="https://bobainsworthgallery.smugmug.com/Vacation"
+             target="_blank"
+             rel="noopener">
+            Our Dordogne, France Bike Trip I Led in 2002
+          </a>
+          <p class="resource-description">
+            Three weeks in the Dordogne region of France with four other friends.
+            Our fourth France cycling trip with our tandem and all our luggage in panniers.
+          </p>
+        </div>
       </section>
     </main>
 
