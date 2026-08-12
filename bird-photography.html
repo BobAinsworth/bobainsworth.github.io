@@ -3,55 +3,90 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+
   <title>Bird Photography — Bob Ainsworth</title>
-  <meta name="description" content="Bird photography notes, galleries, and favorite captures from the field." />
+
+  <meta
+    name="description"
+    content="Bird photography notes, galleries, and favorite captures from the field."
+  />
 
   <style>
     :root{
       --bg:#fef3c7;
-      --surface:#eef4ff;
-      --card:#ffffff;
-      --text:#0b1220;
-      --muted:#445066;
-      --accent:#165dff;
-      --accent-2:#0dbc79;
-      --ring:rgba(22,93,255,0.25);
-      --shadow:0 8px 20px rgba(12,26,75,0.08);
+      --surface:#fff8e1;
+      --card:#fff8e1;
+      --text:#2f2417;
+      --muted:#6b5538;
+      --accent:#b45309;
+      --accent-2:#d97706;
+      --ring:rgba(180,83,9,0.25);
+      --shadow:0 8px 20px rgba(120,72,15,0.09);
+      --border:rgba(146,64,14,0.16);
       --radius:18px;
       --radius-lg:22px;
     }
 
-    *{box-sizing:border-box}
-    html,body{margin:0;height:100%}
+    *{
+      box-sizing:border-box;
+    }
+
+    html,
+    body{
+      margin:0;
+      height:100%;
+    }
 
     body{
       background:var(--bg);
       color:var(--text);
-      font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+      font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,
+           Helvetica,Arial,sans-serif;
       -webkit-font-smoothing:antialiased;
       -moz-osx-font-smoothing:grayscale;
     }
 
-    .wrap{max-width:1200px;margin:auto;padding:18px 20px 64px}
+    .wrap{
+      max-width:1200px;
+      margin:auto;
+      padding:18px 20px 64px;
+    }
 
     .hero{
       position:relative;
       overflow:hidden;
       border-radius:var(--radius-lg);
-      border:1px solid rgba(0,0,0,0.08);
+      border:1px solid var(--border);
       box-shadow:var(--shadow);
       isolation:isolate;
       min-height:clamp(90px,14vh,150px);
       display:flex;
       align-items:center;
       padding:clamp(12px,3vw,20px);
+
       background:
-        radial-gradient(400px at 20% 20%, rgba(22,93,255,.16), transparent 60%),
-        radial-gradient(500px at 80% 10%, rgba(13,188,121,.14), transparent 70%),
-        linear-gradient(180deg, var(--surface), color-mix(in oklab, var(--surface) 70%, white 30%));
+        radial-gradient(
+          400px at 20% 20%,
+          rgba(217,119,6,0.16),
+          transparent 60%
+        ),
+        radial-gradient(
+          500px at 80% 10%,
+          rgba(245,158,11,0.13),
+          transparent 70%
+        ),
+        linear-gradient(
+          180deg,
+          var(--surface),
+          color-mix(in oklab, var(--surface) 70%, white 30%)
+        );
     }
 
-    .brand{display:flex;gap:12px;align-items:center}
+    .brand{
+      display:flex;
+      gap:12px;
+      align-items:center;
+    }
 
     .logo{
       width:46px;
@@ -59,17 +94,32 @@
       border-radius:12px;
       display:grid;
       place-items:center;
-      background:linear-gradient(135deg,var(--accent),var(--accent-2));
-      color:#fff;
+      background:linear-gradient(
+        135deg,
+        var(--accent),
+        var(--accent-2)
+      );
+      color:#fffdf5;
       font-weight:800;
       box-shadow:0 6px 12px var(--ring);
       user-select:none;
       text-decoration:none;
     }
 
-    h1{margin:0;font-size:clamp(22px,2.3vw,28px)}
-    .tagline{margin:0;color:var(--muted);font-size:14px}
-    main{margin-top:20px}
+    h1{
+      margin:0;
+      font-size:clamp(22px,2.3vw,28px);
+    }
+
+    .tagline{
+      margin:0;
+      color:var(--muted);
+      font-size:14px;
+    }
+
+    main{
+      margin-top:20px;
+    }
 
     nav.breadcrumb{
       margin:12px 0;
@@ -80,17 +130,17 @@
     nav.breadcrumb a{
       color:var(--muted);
       text-decoration:none;
-      border-bottom:1px dotted rgba(0,0,0,0.18);
+      border-bottom:1px dotted var(--border);
     }
 
     nav.breadcrumb a:hover{
-      color:var(--text);
-      border-bottom-color:var(--text);
+      color:var(--accent);
+      border-bottom-color:var(--accent);
     }
 
     .section{
       background:var(--card);
-      border:1px solid rgba(0,0,0,0.08);
+      border:1px solid var(--border);
       border-radius:var(--radius);
       box-shadow:var(--shadow);
       padding:22px 24px;
@@ -110,7 +160,7 @@
 
     .section a{
       display:block;
-      color:var(--accent);
+      color:#000000;
       font-weight:600;
       text-decoration:none;
       margin:14px 0;
@@ -118,7 +168,7 @@
     }
 
     .section a:hover{
-      color:var(--accent-2);
+      color:#000000;
       text-decoration:underline;
     }
 
@@ -142,96 +192,168 @@
     .links a{
       color:var(--muted);
       text-decoration:none;
-      border-bottom:1px dotted rgba(0,0,0,0.18);
+      border-bottom:1px dotted var(--border);
     }
 
     .links a:hover{
-      color:var(--text);
-      border-bottom-color:var(--text);
+      color:var(--accent);
+      border-bottom-color:var(--accent);
     }
   </style>
 </head>
 
 <body>
   <div class="wrap">
+
     <header class="hero" role="banner">
       <div class="brand">
-        <a href="index.html" class="logo" aria-label="Home">BA</a>
+
+        <a
+          href="index.html"
+          class="logo"
+          aria-label="Home"
+        >
+          BA
+        </a>
+
         <div>
           <h1>Bird Photography</h1>
-          <p class="tagline">Favorite captures, locations, and notes from behind the lens.</p>
+
+          <p class="tagline">
+            Favorite captures, locations, and notes from behind the lens.
+          </p>
         </div>
+
       </div>
     </header>
 
     <nav class="breadcrumb" aria-label="Breadcrumb">
-      <a href="index.html">Home</a> &nbsp;→&nbsp;
+      <a href="index.html">Home</a>
+      &nbsp;→&nbsp;
       <span>Bird Photography</span>
     </nav>
 
     <main>
       <section class="section">
-        <h2>Resources</h2>
+
+        <h2>Resources - (click on links)</h2>
 
         <p class="subtle">
-          Explore Bob’s favorite bird photographs, recent shots, and galleries organized by bird type.
+          Explore Bob’s favorite bird photographs, recent shots,
+          and galleries organized by bird type.
         </p>
 
-        <a href="https://bobainsworthgallery.smugmug.com/A-Few-Favorites/A-Few-Favorites"
-           target="_blank"
-           rel="noopener">
+        <a
+          href="https://bobainsworthgallery.smugmug.com/A-Few-Favorites/A-Few-Favorites"
+          target="_blank"
+          rel="noopener"
+        >
           A Few Favorites
         </a>
 
-        <a href="https://bobainsworthgallery.smugmug.com/A-Few-Recent-Shots/A-Few-Recent-Shots"
-           target="_blank"
-           rel="noopener">
+        <a
+          href="https://bobainsworthgallery.smugmug.com/A-Few-Recent-Shots/A-Few-Recent-Shots"
+          target="_blank"
+          rel="noopener"
+        >
           A Few Recent Shots
         </a>
 
-        <a href="https://bobainsworthgallery.smugmug.com/Waterfowl"
-           target="_blank"
-           rel="noopener">
+        <a
+          href="https://bobainsworthgallery.smugmug.com/Waterfowl"
+          target="_blank"
+          rel="noopener"
+        >
           Waterfowl
         </a>
 
-        <a href="https://bobainsworthgallery.smugmug.com/Shorebirds"
-           target="_blank"
-           rel="noopener">
+        <a
+          href="https://bobainsworthgallery.smugmug.com/Shorebirds"
+          target="_blank"
+          rel="noopener"
+        >
           Shorebirds
         </a>
 
-        <a href="https://bobainsworthgallery.smugmug.com/Wading-Birds"
-           target="_blank"
-           rel="noopener">
+        <a
+          href="https://bobainsworthgallery.smugmug.com/Wading-Birds"
+          target="_blank"
+          rel="noopener"
+        >
           Herons and Egrets
         </a>
 
-        <a href="https://bobainsworthgallery.smugmug.com/Raptors"
-           target="_blank"
-           rel="noopener">
+        <a
+          href="https://bobainsworthgallery.smugmug.com/Raptors"
+          target="_blank"
+          rel="noopener"
+        >
           Raptors
         </a>
+
       </section>
     </main>
 
     <footer>
+
       <div class="links">
-        <a href="https://youtube.com/@BobsAIChannel" rel="me noopener">AI YouTube</a>
-        <a href="https://youtube.com/@CaleroBob" rel="me noopener">Music YouTube</a>
-        <a href="https://www.linkedin.com/in/bob-ainsworth-56b686" rel="me noopener">LinkedIn</a>
-        <a href="https://bobainsworthgallery.smugmug.com" rel="me noopener">Photo Gallery</a>
-        <a href="https://open.spotify.com/user/calerobob" rel="me noopener">Spotify</a>
-        <a href="https://bobainsworth.github.io" rel="me noopener">GitHub</a>
+        <a
+          href="https://youtube.com/@BobsAIChannel"
+          rel="me noopener"
+        >
+          AI YouTube
+        </a>
+
+        <a
+          href="https://youtube.com/@CaleroBob"
+          rel="me noopener"
+        >
+          Music YouTube
+        </a>
+
+        <a
+          href="https://www.linkedin.com/in/bob-ainsworth-56b686"
+          rel="me noopener"
+        >
+          LinkedIn
+        </a>
+
+        <a
+          href="https://bobainsworthgallery.smugmug.com"
+          rel="me noopener"
+        >
+          Photo Gallery
+        </a>
+
+        <a
+          href="https://open.spotify.com/user/calerobob"
+          rel="me noopener"
+        >
+          Spotify
+        </a>
+
+        <a
+          href="https://bobainsworth.github.io"
+          rel="me noopener"
+        >
+          GitHub
+        </a>
       </div>
 
-      <div>&copy; <span id="y"></span> Bob Ainsworth</div>
+      <div>
+        &copy; <span id="y"></span> Bob Ainsworth
+      </div>
+
     </footer>
+
   </div>
 
   <script>
     var yearSpan = document.getElementById('y');
-    if (yearSpan) yearSpan.textContent = new Date().getFullYear();
+
+    if (yearSpan) {
+      yearSpan.textContent = new Date().getFullYear();
+    }
   </script>
 </body>
 </html>
