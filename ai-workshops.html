@@ -1,203 +1,230 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>AI Workshops and Advice — Bob Ainsworth</title>
+  <title>AI Workshops and Guidance — Bob Ainsworth</title>
 
   <meta
     name="description"
     content="Slides, handouts, and sign-ups for upcoming AI sessions."
-  />
+  >
 
   <style>
-    :root{
-      --bg:#fef3c7;
-      --surface:#fff8e1;
-      --card:#fff8e1;
-      --text:#2f2417;
-      --muted:#6b5538;
-      --accent:#b45309;
-      --accent-2:#d97706;
-      --ring:rgba(180,83,9,0.25);
-      --shadow:0 8px 20px rgba(120,72,15,0.09);
-      --border:rgba(146,64,14,0.16);
-      --radius:18px;
-      --radius-lg:22px;
+    :root {
+      --bg: #fef3c7;
+      --surface: #f6c453;
+      --card: #fffaf0;
+      --text: #2f2417;
+      --muted: #6b5438;
+      --accent: #2f2417;
+      --accent-hover: #5b421f;
+      --ring: rgba(146, 64, 14, 0.22);
+      --shadow: 0 8px 20px rgba(92, 55, 18, 0.12);
+      --radius: 18px;
+      --radius-lg: 22px;
     }
 
-    *{
-      box-sizing:border-box;
+    * {
+      box-sizing: border-box;
     }
 
     html,
-    body{
-      margin:0;
-      height:100%;
+    body {
+      min-height: 100%;
+      margin: 0;
     }
 
-    body{
-      background:var(--bg);
-      color:var(--text);
-      font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,
-           Helvetica,Arial,sans-serif;
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font: 16px/1.6 system-ui, -apple-system, BlinkMacSystemFont,
+        "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
 
-    .wrap{
-      max-width:1200px;
-      margin:auto;
-      padding:18px 20px 64px;
+    .wrap {
+      max-width: 1200px;
+      margin: auto;
+      padding: 18px 20px 64px;
     }
 
-    .hero{
-      position:relative;
-      overflow:hidden;
-      border-radius:var(--radius-lg);
-      border:1px solid var(--border);
-      box-shadow:var(--shadow);
-      isolation:isolate;
-      min-height:clamp(90px,14vh,150px);
-      display:flex;
-      align-items:center;
-      padding:clamp(12px,3vw,20px);
+    /* Page header */
 
+    .hero {
+      position: relative;
+      min-height: clamp(90px, 14vh, 150px);
+      overflow: hidden;
+      isolation: isolate;
+      display: flex;
+      align-items: center;
+      padding: clamp(12px, 3vw, 20px);
       background:
         radial-gradient(
           400px at 20% 20%,
-          rgba(217,119,6,0.16),
+          rgba(255, 255, 255, 0.28),
           transparent 60%
         ),
         radial-gradient(
           500px at 80% 10%,
-          rgba(245,158,11,0.13),
+          rgba(146, 64, 14, 0.10),
           transparent 70%
         ),
-        linear-gradient(
-          180deg,
-          var(--surface),
-          color-mix(in oklab, var(--surface) 70%, white 30%)
-        );
+        linear-gradient(180deg, var(--surface), #e9ad2f);
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow);
     }
 
-    .brand{
-      display:flex;
-      gap:12px;
-      align-items:center;
+    .brand {
+      display: flex;
+      gap: 12px;
+      align-items: center;
     }
 
-    .logo{
-      width:46px;
-      height:46px;
-      border-radius:12px;
-      display:grid;
-      place-items:center;
-      background:linear-gradient(
-        135deg,
-        var(--accent),
-        var(--accent-2)
-      );
-      color:#fffdf5;
-      font-weight:800;
-      box-shadow:0 6px 12px var(--ring);
-      user-select:none;
-      text-decoration:none;
+    .logo {
+      width: 46px;
+      height: 46px;
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+      background: linear-gradient(135deg, #7c4a18, #3f2b17);
+      color: #fff8e7;
+      font-weight: 800;
+      text-decoration: none;
+      border-radius: 12px;
+      box-shadow: 0 6px 12px var(--ring);
+      user-select: none;
     }
 
-    h1{
-      margin:0;
-      font-size:clamp(22px,2.3vw,28px);
+    h1 {
+      margin: 0;
+      font-size: clamp(22px, 2.3vw, 28px);
     }
 
-    .tagline{
-      margin:0;
-      color:var(--muted);
-      font-size:14px;
+    .tagline {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
     }
 
-    main{
-      margin-top:20px;
+    /* Breadcrumb */
+
+    .breadcrumb {
+      margin: 12px 0;
+      color: var(--muted);
+      font-size: 14px;
     }
 
-    nav.breadcrumb{
-      margin:12px 0;
-      color:var(--muted);
-      font-size:14px;
+    .breadcrumb a {
+      color: var(--muted);
+      text-decoration: none;
+      border-bottom: 1px dotted rgba(0, 0, 0, 0.18);
     }
 
-    nav.breadcrumb a{
-      color:var(--muted);
-      text-decoration:none;
-      border-bottom:1px dotted var(--border);
+    .breadcrumb a:hover {
+      color: var(--text);
+      border-bottom-color: var(--text);
     }
 
-    nav.breadcrumb a:hover{
-      color:var(--accent);
-      border-bottom-color:var(--accent);
+    /* Main content */
+
+    main {
+      margin-top: 20px;
     }
 
-    .section{
-      background:var(--card);
-      border:1px solid var(--border);
-      border-radius:var(--radius);
-      box-shadow:var(--shadow);
-      padding:22px 24px;
-      margin-top:18px;
+    .section {
+      margin-top: 18px;
+      padding: 22px 24px;
+      background: var(--card);
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
     }
 
-    .section h2{
-      margin:0 0 8px 0;
-      font-size:clamp(18px,1.8vw,20px);
+    .section h2 {
+      margin: 0 0 8px;
+      font-size: clamp(18px, 1.8vw, 20px);
     }
 
-    .section .subtle{
-      margin:0;
-      color:var(--muted);
-      font-size:13px;
+    .resource-list {
+      margin: 10px 0 0;
+      padding: 0;
+      list-style: none;
     }
 
-    .section a{
-      display:block;
-      color:#000000;
-      font-weight:600;
-      text-decoration:none;
-      margin:14px 0;
-      line-height:1.9;
+    .resource-list li {
+      margin: 14px 0;
+      line-height: 1.6;
     }
 
-    .section a:hover{
-      color:#000000;
-      text-decoration:underline;
+    .resource-list a {
+      display: block;
+      color: var(--accent);
+      font-weight: 600;
+      line-height: 1.6;
+      text-decoration: none;
     }
 
-    footer{
-      margin-top:28px;
-      color:var(--muted);
-      font-size:14px;
-      display:flex;
-      gap:12px;
-      flex-wrap:wrap;
-      align-items:center;
-      justify-content:space-between;
+    .resource-list a:hover {
+      color: var(--accent-hover);
+      text-decoration: underline;
     }
 
-    .links{
-      display:flex;
-      gap:12px;
-      flex-wrap:wrap;
+    .coming-soon {
+      color: var(--text);
+      font-weight: 600;
     }
 
-    .links a{
-      color:var(--muted);
-      text-decoration:none;
-      border-bottom:1px dotted var(--border);
+    .status {
+      color: var(--muted);
+      font-weight: 400;
     }
 
-    .links a:hover{
-      color:var(--accent);
-      border-bottom-color:var(--accent);
+    /* Footer */
+
+    footer {
+      margin-top: 28px;
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .links {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .links a {
+      color: var(--muted);
+      text-decoration: none;
+      border-bottom: 1px dotted rgba(0, 0, 0, 0.18);
+    }
+
+    .links a:hover {
+      color: var(--text);
+      border-bottom-color: var(--text);
+    }
+
+    @media (max-width: 600px) {
+      .wrap {
+        padding: 12px 12px 40px;
+      }
+
+      .hero {
+        border-radius: 16px;
+      }
+
+      .section {
+        padding: 18px;
+      }
     }
   </style>
 </head>
@@ -205,14 +232,10 @@
 <body>
   <div class="wrap">
 
-    <header class="hero" role="banner">
+    <header class="hero">
       <div class="brand">
 
-        <a
-          href="index.html"
-          class="logo"
-          aria-label="Home"
-        >
+        <a href="index.html" class="logo" aria-label="Return to home page">
           BA
         </a>
 
@@ -236,29 +259,46 @@
     <main>
       <section class="section">
 
-        <h2>Resources - (click on links)</h2>
+        <h2>Resources</h2>
 
-        <p class="subtle">
-          This page will collect links to workshop slides, handouts,
-          example prompts, and follow-up materials. As you add more
-          workshops, you can link to individual pages stored inside
-          the <code>ai-workshops/</code> folder.
-        </p>
+        <ul class="resource-list">
 
-        <!-- Examples for future use (currently commented out)
-        <a href="ai-workshops/session-1-overview.html">
-          Session 1 &mdash; Introduction to Generative AI
-        </a>
+          <li>
+            <a
+              href="https://drive.google.com/file/d/1TA25vDa0fcBRQ931RofIKAgPg2MhS59r/view?usp=drive_link"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              ChatGPT for Everyday Practical Use Workshop — for Seniors
+            </a>
+          </li>
 
-        <a href="ai-workshops/session-2-prompts.html">
-          Session 2 &mdash; Writing Better Prompts
-        </a>
+          <li class="coming-soon">
+            ChatGPT for Everyday Practical Use Workshop — Facebook Delivered
+            <span class="status">(coming soon)</span>
+          </li>
 
-        <a href="ai-workshops/session-3-tools.html">
-          Session 3 &mdash; Tools, Workflows, and Examples
-        </a>
-        -->
+          <li class="coming-soon">
+            ChatGPT for College Students to Prepare Them for the Workforce
+            <span class="status">(coming soon)</span>
+          </li>
 
+          <li class="coming-soon">
+            Interview Preparation and Practice Workshop
+            <span class="status">(coming soon)</span>
+          </li>
+
+          <li>
+            <a
+              href="https://drive.google.com/file/d/1jmUDk0FcVyY5nwK-6DKrSu-l9BfV09Es/view?usp=drive_link"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Major Essays and White Papers on AI
+            </a>
+          </li>
+
+        </ul>
       </section>
     </main>
 
@@ -267,35 +307,40 @@
       <div class="links">
         <a
           href="https://youtube.com/@BobsAIChannel"
-          rel="me noopener"
+          target="_blank"
+          rel="me noopener noreferrer"
         >
           AI YouTube
         </a>
 
         <a
           href="https://youtube.com/@CaleroBob"
-          rel="me noopener"
+          target="_blank"
+          rel="me noopener noreferrer"
         >
           Music YouTube
         </a>
 
         <a
           href="https://www.linkedin.com/in/bob-ainsworth-56b686"
-          rel="me noopener"
+          target="_blank"
+          rel="me noopener noreferrer"
         >
           LinkedIn
         </a>
 
         <a
           href="https://bobainsworthgallery.smugmug.com"
-          rel="me noopener"
+          target="_blank"
+          rel="me noopener noreferrer"
         >
           Photo Gallery
         </a>
 
         <a
           href="https://open.spotify.com/user/calerobob"
-          rel="me noopener"
+          target="_blank"
+          rel="me noopener noreferrer"
         >
           Spotify
         </a>
@@ -309,17 +354,17 @@
       </div>
 
       <div>
-        &copy; <span id="y"></span> Bob Ainsworth
+        &copy; <span id="year"></span> Bob Ainsworth
       </div>
 
     </footer>
   </div>
 
   <script>
-    var yearSpan = document.getElementById('y');
+    const year = document.getElementById("year");
 
-    if (yearSpan) {
-      yearSpan.textContent = new Date().getFullYear();
+    if (year) {
+      year.textContent = new Date().getFullYear();
     }
   </script>
 </body>
